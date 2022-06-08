@@ -11,6 +11,7 @@ public class Character {
     private int healingPower = 50;
 
     private int maxRange;
+    private Coord position = new Coord(0,0);
     private String name;
     public Character(String name){
         this.name = name;
@@ -38,6 +39,9 @@ public class Character {
     public int getHealingPower(){
         return this.healingPower;
     }
+    public Coord getPosition(){
+        return this.position;
+    }
 
     public int getMaxRange(){
         return this.maxRange;
@@ -58,11 +62,6 @@ public class Character {
     public void setHealingPower(int val){
         this.healingPower = val;
     }
-/*
-    - If the target is 5 or more Levels above the attacker, Damage is reduced by 50%
-    - If the target is 5 or more Levels below the attacker, Damage is increased by 50%
-
- */
 
     public  void getsHurt(Character interactor){
         if(interactor != self){

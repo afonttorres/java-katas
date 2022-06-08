@@ -2,7 +2,9 @@ package katas;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CharacterTest {
 
@@ -249,6 +251,45 @@ class CharacterTest {
         boolean isAlive = fiona.getIsAlive();
         assertEquals(false, isAlive);
         assertEquals(0, result);
+    }
+
+    @Test
+    public void coordCanBeCreated(){
+        Coord coord = new Coord(0,0);
+        int xRes = coord.getX();
+        int yRes = coord.getY();
+        assertEquals(0,xRes );
+        assertEquals(0, yRes);
+    }
+
+    @Test
+    public void creatingFieldCoords(){
+        Field field = new Field();
+        field.createCoords();
+        List<Coord> res = field.getCoords();
+        assertEquals(121, res.size());
+    }
+
+    //Just a console print
+    @Test
+    public void gettingFieldCoords(){
+        Field field = new Field();
+        field.createCoords();
+        List<Coord> res = field.getCoords();
+        for(Coord coord: res){
+            System.out.println(coord.getX()+","+coord.getY());
+        }
+
+    }
+
+    @Test
+    public void meleeHasInitPosition(){
+        Melee shrek = new Melee("Shrek");
+        int xRes = shrek.getPosition().getX();
+        int yRes = shrek.getPosition().getY();
+        assertEquals(0, xRes);
+        assertEquals(0, yRes);
+        System.out.println("("+xRes+","+yRes+")");
     }
 
 }
