@@ -1,18 +1,25 @@
 package katas;
 
 public class Character {
+    private int maxHealth = 1000;
     private int health = 1000;
     private  int level = 1;
-    private boolean isAlive = this.health >= 1 ? true : false;
-
-    private String name;
+    private boolean isAlive(){
+        return this.health >= 1;
+    }
     private int attackPower = 50;
     private int healingPower = 50;
 
+    private int maxRange;
+    private String name;
     public Character(String name){
         this.name = name;
     }
 
+    public Character self = this;
+    public int getMaxHealth(){
+        return this.maxHealth;
+    }
     public int getHealth(){
         return this.health;
     }
@@ -20,7 +27,7 @@ public class Character {
         return this.level;
     }
     public boolean getIsAlive(){
-        return this.isAlive;
+        return this.isAlive();
     }
     public String getName(){
         return this.name;
@@ -32,8 +39,24 @@ public class Character {
         return this.healingPower;
     }
 
+    public int getMaxRange(){
+        return this.maxRange;
+    }
+
+    public void setMaxRange(int val){
+        this.maxRange = val;
+    }
+
     public void setLevel(int level){
         this.level = level;
+    }
+
+    public void setAttackPower(int val){
+        this.attackPower = val;
+    }
+
+    public void setHealingPower(int val){
+        this.healingPower = val;
     }
 /*
     - If the target is 5 or more Levels above the attacker, Damage is reduced by 50%
@@ -42,7 +65,7 @@ public class Character {
  */
 
     public  void getsHurt(Character interactor){
-        if(interactor!= null && interactor.getName() != this.name){
+        if(interactor != self){
             double damage;
             if(interactor.getLevel() >= (this.getLevel()+5)){
                 damage = interactor.getAttackPower() * 1.5;
@@ -54,9 +77,8 @@ public class Character {
 
             System.out.println(damage);
 
-            if(this.health <= damage){
+            if(this.health <= damage || this.health < 0){
                 this.health = 0;
-                this.isAlive = false;
             }else{
                 this.health -= damage;
             }
@@ -64,15 +86,19 @@ public class Character {
     }
 
     public void getsHealed(Character interactor){
-        if(interactor!= null && interactor.getName() == this.name){
-            if(this.health == 1000 && this.isAlive){
-                this.health = interactor.getHealth();
-            }
-            if(this.health >0 && this.health<= (1000- interactor.getHealingPower()) && this.isAlive){
-                this.health += interactor.getHealingPower();
+        if(interactor == self){
+            this.health += this.getHealingPower();
+            if(this.health > this.maxHealth){
+                this.health = this.maxHealth;
             }
         }
 
+    }
+
+    public void attacks(Character interactor){
+        if(interactor != self){
+            interactor.getsHurt(self);
+        }
     }
 
 

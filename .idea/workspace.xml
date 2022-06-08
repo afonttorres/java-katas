@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839c5b5b-97a7-4f83-b559-9795a679085c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/katas/Character.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/katas/Melee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/katas/Ranged.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +37,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -76,7 +77,30 @@
       <recent name="katas" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CharacterTest.charactersAttackPowerGetsReducedByOponentLevel">
+  <component name="RunManager" selected="Gradle.CharacterTest.meleeAttacksRanged">
+    <configuration name="CharacterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;katas.CharacterTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="CharacterTest.characterCanHealHimselfIT2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -100,7 +124,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.characterCantHealCharacterIT2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.meleeAttacksRange" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -113,7 +137,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.characterCantHealCharacterIT2&quot;" />
+            <option value="&quot;katas.CharacterTest.meleeAttacksRange&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -123,7 +147,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.characterCantHurtHimselfIT2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.meleeAttacksRanged" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -136,7 +160,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.characterCantHurtHimselfIT2&quot;" />
+            <option value="&quot;katas.CharacterTest.meleeAttacksRanged&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -146,7 +170,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.characterHurtsCharacterIT2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.rangedHasMaxRange" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -159,30 +183,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.characterHurtsCharacterIT2&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="CharacterTest.charactersAttackPowerGetsReducedByOponentLevel" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.charactersAttackPowerGetsReducedByOponentLevel&quot;" />
+            <option value="&quot;katas.CharacterTest.rangedHasMaxRange&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -194,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CharacterTest.charactersAttackPowerGetsReducedByOponentLevel" />
+        <item itemvalue="Gradle.CharacterTest.meleeAttacksRanged" />
+        <item itemvalue="Gradle.CharacterTest.meleeAttacksRange" />
+        <item itemvalue="Gradle.CharacterTest" />
         <item itemvalue="Gradle.CharacterTest.characterCanHealHimselfIT2" />
-        <item itemvalue="Gradle.CharacterTest.characterCantHealCharacterIT2" />
-        <item itemvalue="Gradle.CharacterTest.characterCantHurtHimselfIT2" />
-        <item itemvalue="Gradle.CharacterTest.characterHurtsCharacterIT2" />
+        <item itemvalue="Gradle.CharacterTest.rangedHasMaxRange" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +213,7 @@
       <updated>1654593157760</updated>
       <workItem from="1654593170507" duration="17851000" />
       <workItem from="1654611396425" duration="20000" />
-      <workItem from="1654673097374" duration="15797000" />
+      <workItem from="1654673097374" duration="22079000" />
     </task>
     <servers />
   </component>

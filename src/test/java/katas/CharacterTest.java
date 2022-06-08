@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterTest {
 
-    //ITERATION ONE//
+    //ITERATION 1//
     //HEALT, ISALIVE & LEVEL DEFAULT//
     @Test
     public void charactersHealthStarts1000(){
@@ -203,6 +203,52 @@ class CharacterTest {
         shrek.getsHurt(fiona);
         int result = shrek.getHealth();
         assertEquals( 975, result);
+    }
+
+    //ITERATION 3
+    //MELEE CAN BE CREATED
+    @Test
+    public void meleeCanBeCreated(){
+        Melee shrek = new Melee("Shrek");
+        String result = shrek.getName();
+        assertEquals("Shrek",result);
+    }
+
+    //MELEE HAS MAXRANGE
+    @Test
+    public void meleeHasMaxRange(){
+        Melee shrek = new Melee("Shrek");
+        int result = shrek.getMaxRange();
+        assertEquals(2,result);
+    }
+
+    //RANGED CAN BE CREATED
+    @Test
+    public void rangedCanBeCreated(){
+        Ranged shrek = new Ranged("Shrek");
+        String result = shrek.getName();
+        assertEquals("Shrek",result);
+    }
+
+    //RANGED HAS MAXRANGE
+    @Test
+    public void rangedHasMaxRange(){
+        Ranged shrek = new Ranged("Shrek");
+        int result = shrek.getMaxRange();
+        assertEquals(20,result);
+    }
+
+    //MELEE KILLS RANGED
+    @Test
+    public void meleeAttacksRanged(){
+        Melee shrek = new Melee("Shrek");
+        Ranged fiona = new Ranged("Fiona");
+        shrek.setAttackPower(1000);
+        shrek.attacks(fiona);
+        int result = fiona.getHealth();
+        boolean isAlive = fiona.getIsAlive();
+        assertEquals(false, isAlive);
+        assertEquals(0, result);
     }
 
 }
