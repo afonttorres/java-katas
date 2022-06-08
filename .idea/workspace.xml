@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839c5b5b-97a7-4f83-b559-9795a679085c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/katas/Calculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/katas/FizzBuzz.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/katas/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/katas/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/katas/CalculatorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/katas/FizzBuzzTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/katas/Character.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -56,21 +53,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -79,8 +76,8 @@
       <recent name="katas" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.FizzBuzzTest.fizzBuzzReturnsListDivByNum">
-    <configuration name="CalculatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CharacterTest.charactersAttackPowerGetsReducedByOponentLevel">
+    <configuration name="CharacterTest.characterCanHealHimselfIT2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -93,7 +90,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CalculatorTest&quot;" />
+            <option value="&quot;katas.CharacterTest.characterCanHealHimselfIT2&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -103,7 +100,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CalculatorTest.calculatorReturnsEqOrGreatThan5" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.characterCantHealCharacterIT2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -116,7 +113,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CalculatorTest.calculatorReturnsEqOrGreatThan5&quot;" />
+            <option value="&quot;katas.CharacterTest.characterCantHealCharacterIT2&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -126,7 +123,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FizzBuzzTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.characterCantHurtHimselfIT2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -139,7 +136,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.FizzBuzzTest&quot;" />
+            <option value="&quot;katas.CharacterTest.characterCantHurtHimselfIT2&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -149,7 +146,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FizzBuzzTest.fizzBuzzReturnsListDivByNum" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.characterHurtsCharacterIT2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -162,7 +159,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.FizzBuzzTest.fizzBuzzReturnsListDivByNum&quot;" />
+            <option value="&quot;katas.CharacterTest.characterHurtsCharacterIT2&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -172,7 +169,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FizzBuzzTest.fizzBuzzReturnsString" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.charactersAttackPowerGetsReducedByOponentLevel" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -185,7 +182,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.FizzBuzzTest.fizzBuzzReturnsString&quot;" />
+            <option value="&quot;katas.CharacterTest.charactersAttackPowerGetsReducedByOponentLevel&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -197,11 +194,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.FizzBuzzTest.fizzBuzzReturnsListDivByNum" />
-        <item itemvalue="Gradle.FizzBuzzTest" />
-        <item itemvalue="Gradle.FizzBuzzTest.fizzBuzzReturnsString" />
-        <item itemvalue="Gradle.CalculatorTest.calculatorReturnsEqOrGreatThan5" />
-        <item itemvalue="Gradle.CalculatorTest" />
+        <item itemvalue="Gradle.CharacterTest.charactersAttackPowerGetsReducedByOponentLevel" />
+        <item itemvalue="Gradle.CharacterTest.characterCanHealHimselfIT2" />
+        <item itemvalue="Gradle.CharacterTest.characterCantHealCharacterIT2" />
+        <item itemvalue="Gradle.CharacterTest.characterCantHurtHimselfIT2" />
+        <item itemvalue="Gradle.CharacterTest.characterHurtsCharacterIT2" />
       </list>
     </recent_temporary>
   </component>
@@ -213,7 +210,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1654593157760</updated>
-      <workItem from="1654593170507" duration="16910000" />
+      <workItem from="1654593170507" duration="17851000" />
+      <workItem from="1654611396425" duration="20000" />
+      <workItem from="1654673097374" duration="15797000" />
     </task>
     <servers />
   </component>
