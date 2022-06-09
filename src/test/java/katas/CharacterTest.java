@@ -292,4 +292,92 @@ class CharacterTest {
         System.out.println("("+xRes+","+yRes+")");
     }
 
+    @Test
+    public void fieldContainsCharPosition(){
+        Melee shrek = new Melee("Shrek");
+        Field field = new Field();
+        field.createCoords();
+        boolean isCharInField = field.isCharPositonInField(shrek.getPosition());
+        assertEquals(true, isCharInField);
+    }
+
+    @Test
+    public void fieldDoesntContainCharPosition(){
+        Ranged fiona = new Ranged("Fiona");
+        Field field = new Field();
+        field.createCoords();
+        fiona.setPosition(2,15);
+        boolean isCharInField = field.isCharPositonInField(fiona.getPosition());
+        assertEquals(false,isCharInField );
+    }
+
+    @Test
+    public void calcDistance(){
+        Ranged fiona = new Ranged("Fiona");
+        Melee shrek = new Melee("Shrek");
+        Field field = new Field();
+        field.createCoords();
+        fiona.setPosition(5,2);
+        shrek.setPosition(8,4);
+        double result = field.calcDistance(fiona.getPosition(), shrek.getPosition());
+        assertEquals(3.6, result);
+    }
+
+    @Test
+    public void attackerCanAttackTarget(){
+        Ranged fiona = new Ranged("Fiona");
+        Melee shrek = new Melee("Shrek");
+        Field field = new Field();
+        field.createCoords();
+        fiona.setPosition(5,2);
+        shrek.setPosition(8,4);
+        double d =  field.calcDistance(fiona.getPosition(), shrek.getPosition());
+        Attack attack = new Attack(fiona, shrek, d);
+        boolean canAttack = attack.getCanAttack();
+        assertEquals(true, canAttack);
+    }
+
+    @Test
+    public void attackerCantAttackTarget(){
+        Ranged fiona = new Ranged("Fiona");
+        Melee shrek = new Melee("Shrek");
+        Field field = new Field();
+        field.createCoords();
+        fiona.setPosition(5,2);
+        shrek.setPosition(8,4);
+        double d =  field.calcDistance(fiona.getPosition(), shrek.getPosition());
+        Attack attack = new Attack(shrek, fiona,d);
+        boolean canAttack = attack.getCanAttack();
+        assertEquals(false, canAttack);
+    }
+
+    @Test
+    public void attackerAttacksTarget(){
+        Ranged fiona = new Ranged("Fiona");
+        Melee shrek = new Melee("Shrek");
+        Field field = new Field();
+        field.createCoords();
+        fiona.setPosition(5,2);
+        shrek.setPosition(8,4);
+        double d =  field.calcDistance(fiona.getPosition(), shrek.getPosition());
+        Attack fionaAttacksShrek = new Attack(fiona, shrek,d);
+        fionaAttacksShrek.on();
+        int targetHealth = shrek.getHealth();
+        assertEquals(950, targetHealth);
+    }
+
+    @Test
+    public void attackerAttacksTargetButDoesntHurtHim(){
+        Ranged fiona = new Ranged("Fiona");
+        Melee shrek = new Melee("Shrek");
+        Field field = new Field();
+        field.createCoords();
+        fiona.setPosition(5,2);
+        shrek.setPosition(8,4);
+        double d =  field.calcDistance(fiona.getPosition(), shrek.getPosition());
+        Attack shrekAttacksFiona = new Attack(shrek, fiona,d);
+        shrekAttacksFiona.on();
+        int targetHealth = fiona.getHealth();
+        assertEquals(1000, targetHealth);
+    }
 }

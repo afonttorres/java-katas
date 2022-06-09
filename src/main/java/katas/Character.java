@@ -100,5 +100,10 @@ public class Character {
         }
     }
 
+    public void setPosition(int x, int y){
+        Coord newPosition = new Coord(x, y);
+        this.position = newPosition;
+    }
+
 
 }

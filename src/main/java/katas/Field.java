@@ -28,4 +28,34 @@ public class Field {
         return this.fieldCoords;
     }
 
+     public boolean isCharPositonInField(Coord o) {
+        boolean isEqual =false;
+        if (o == null) {
+            isEqual = false;
+        }
+       for(Coord coord: this.fieldCoords){
+           if(coord.getY() == o.getY() && coord.getX() == o.getX()){
+               isEqual = true;
+           }
+       }
+       return isEqual;
+    }
+
+    public double calcDistance(Coord charAPosition, Coord charBPosition){
+        double distance = -1;
+        if(isCharPositonInField(charAPosition) && isCharPositonInField(charBPosition)){
+            //System.out.println("A: ("+charAPosition.getX()+","+charAPosition.getY()+")");
+            //System.out.println("B: ("+charBPosition.getX()+","+charBPosition.getY()+")");
+            int x2 = charBPosition.getX();
+            int x1 = charAPosition.getX();
+            int y2 = charBPosition.getY();
+            int y1 = charAPosition.getY();
+
+            double d = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1), 2));
+              distance = Math.floor(d*100.0)/100.0;
+        }else{
+            System.out.println("Character is not in field");
+        }
+        return  distance;
+    }
 }

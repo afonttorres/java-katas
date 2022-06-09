@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839c5b5b-97a7-4f83-b559-9795a679085c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/katas/Coord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/katas/Attack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Field.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,8 +77,8 @@
       <recent name="katas" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CharacterTest.coordCanBeCreated">
-    <configuration name="CharacterTest.coordCanBeCreated" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CharacterTest.attackerAttacksTargetButDoesntHurtHim">
+    <configuration name="CharacterTest.attackerAttacksTarget" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -89,7 +91,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.coordCanBeCreated&quot;" />
+            <option value="&quot;katas.CharacterTest.attackerAttacksTarget&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -99,7 +101,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.coordCanBeSeen" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.attackerAttacksTargetButDoesntHurtHim" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -112,7 +114,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.coordCanBeSeen&quot;" />
+            <option value="&quot;katas.CharacterTest.attackerAttacksTargetButDoesntHurtHim&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -122,7 +124,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.creatingFieldCoords (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.attackerCanAttackTarget" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -135,7 +137,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.creatingFieldCoords&quot;" />
+            <option value="&quot;katas.CharacterTest.attackerCanAttackTarget&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -145,7 +147,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.meleeAttacksRange" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.attackerCantAttackTarget" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -158,7 +160,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.meleeAttacksRange&quot;" />
+            <option value="&quot;katas.CharacterTest.attackerCantAttackTarget&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -168,7 +170,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.meleeAttacksRanged" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.calcDistance" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -181,7 +183,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.meleeAttacksRanged&quot;" />
+            <option value="&quot;katas.CharacterTest.calcDistance&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -193,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CharacterTest.coordCanBeCreated" />
-        <item itemvalue="Gradle.CharacterTest.creatingFieldCoords (1)" />
-        <item itemvalue="Gradle.CharacterTest.coordCanBeSeen" />
-        <item itemvalue="Gradle.CharacterTest.meleeAttacksRanged" />
-        <item itemvalue="Gradle.CharacterTest.meleeAttacksRange" />
+        <item itemvalue="Gradle.CharacterTest.attackerAttacksTargetButDoesntHurtHim" />
+        <item itemvalue="Gradle.CharacterTest.attackerAttacksTarget" />
+        <item itemvalue="Gradle.CharacterTest.attackerCanAttackTarget" />
+        <item itemvalue="Gradle.CharacterTest.attackerCantAttackTarget" />
+        <item itemvalue="Gradle.CharacterTest.calcDistance" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +214,8 @@
       <workItem from="1654593170507" duration="17851000" />
       <workItem from="1654611396425" duration="20000" />
       <workItem from="1654673097374" duration="22805000" />
-      <workItem from="1654704757334" duration="5278000" />
+      <workItem from="1654704757334" duration="8167000" />
+      <workItem from="1654758233842" duration="8357000" />
     </task>
     <servers />
   </component>
