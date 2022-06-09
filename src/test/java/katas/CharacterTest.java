@@ -264,8 +264,7 @@ class CharacterTest {
 
     @Test
     public void creatingFieldCoords(){
-        Field field = new Field();
-        field.createCoords();
+        Field field = new Field("Far far away");
         List<Coord> res = field.getCoords();
         assertEquals(121, res.size());
     }
@@ -273,13 +272,10 @@ class CharacterTest {
     //Just a console print
     @Test
     public void gettingFieldCoords(){
-        Field field = new Field();
-        field.createCoords();
-        List<Coord> res = field.getCoords();
-        for(Coord coord: res){
-            System.out.println(coord.getX()+","+coord.getY());
-        }
-
+        Field field = new Field("Far far away");
+        List<Coord> coords = field.getCoords();
+        int result = field.getCoords().size();
+        assertEquals(121, result);
     }
 
     @Test
@@ -295,19 +291,19 @@ class CharacterTest {
     @Test
     public void fieldContainsCharPosition(){
         Melee shrek = new Melee("Shrek");
-        Field field = new Field();
-        field.createCoords();
-        boolean isCharInField = field.isCharPositonInField(shrek.getPosition());
+        Field field = new Field("Far far away");
+        shrek.setField(field);
+        boolean isCharInField = field.isCoordOnField(shrek.getPosition());
         assertEquals(true, isCharInField);
     }
 
     @Test
     public void fieldDoesntContainCharPosition(){
         Ranged fiona = new Ranged("Fiona");
-        Field field = new Field();
-        field.createCoords();
+        Field field = new Field("Far far away");
         fiona.setPosition(2,15);
-        boolean isCharInField = field.isCharPositonInField(fiona.getPosition());
+        fiona.setField(field);
+        boolean isCharInField = field.isCoordOnField(fiona.getPosition());
         assertEquals(false,isCharInField );
     }
 
@@ -315,11 +311,12 @@ class CharacterTest {
     public void calcDistance(){
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
-        Field field = new Field();
-        field.createCoords();
+        Field field = new Field("Far far away");
+        fiona.setField(field);
         fiona.setPosition(5,2);
+        shrek.setField(field);
         shrek.setPosition(8,4);
-        double result = field.calcDistance(fiona.getPosition(), shrek.getPosition());
+        double result = field.calcDistance(fiona, shrek);
         assertEquals(3.6, result);
     }
 
@@ -327,13 +324,13 @@ class CharacterTest {
     public void attackerCanAttackTarget(){
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
-        Field field = new Field();
-        field.createCoords();
+        Field field = new Field("Far far away");
         fiona.setPosition(5,2);
         shrek.setPosition(8,4);
-        double d =  field.calcDistance(fiona.getPosition(), shrek.getPosition());
-        Attack attack = new Attack(fiona, shrek, d);
-        boolean canAttack = attack.getCanAttack();
+        fiona.setField(field);
+        shrek.setField(field);
+        Attack attack = new Attack(fiona, shrek);
+        boolean canAttack = attack.getAreOnRange();
         assertEquals(true, canAttack);
     }
 
@@ -341,13 +338,13 @@ class CharacterTest {
     public void attackerCantAttackTarget(){
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
-        Field field = new Field();
-        field.createCoords();
+        Field field = new Field("Far far away");
         fiona.setPosition(5,2);
         shrek.setPosition(8,4);
-        double d =  field.calcDistance(fiona.getPosition(), shrek.getPosition());
-        Attack attack = new Attack(shrek, fiona,d);
-        boolean canAttack = attack.getCanAttack();
+        fiona.setField(field);
+        shrek.setField(field);
+        Attack attack = new Attack(shrek, fiona);
+        boolean canAttack = attack.getAreOnRange();
         assertEquals(false, canAttack);
     }
 
@@ -355,12 +352,12 @@ class CharacterTest {
     public void attackerAttacksTarget(){
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
-        Field field = new Field();
-        field.createCoords();
+        Field field = new Field("Far far away");
         fiona.setPosition(5,2);
         shrek.setPosition(8,4);
-        double d =  field.calcDistance(fiona.getPosition(), shrek.getPosition());
-        Attack fionaAttacksShrek = new Attack(fiona, shrek,d);
+        fiona.setField(field);
+        shrek.setField(field);
+        Attack fionaAttacksShrek = new Attack(fiona, shrek);
         fionaAttacksShrek.on();
         int targetHealth = shrek.getHealth();
         assertEquals(950, targetHealth);
@@ -370,14 +367,330 @@ class CharacterTest {
     public void attackerAttacksTargetButDoesntHurtHim(){
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
-        Field field = new Field();
-        field.createCoords();
+        Field field = new Field("Far far away");
         fiona.setPosition(5,2);
         shrek.setPosition(8,4);
-        double d =  field.calcDistance(fiona.getPosition(), shrek.getPosition());
-        Attack shrekAttacksFiona = new Attack(shrek, fiona,d);
+        fiona.setField(field);
+        shrek.setField(field);
+        Attack shrekAttacksFiona = new Attack(shrek, fiona);
         shrekAttacksFiona.on();
         int targetHealth = fiona.getHealth();
         assertEquals(1000, targetHealth);
+    }
+
+    @Test
+    public void factionCanBeCreated(){
+        Faction faction = new Faction("Shrek & Co");
+        String factionName = faction.getName();
+        assertEquals("Shrek & Co", factionName);
+    }
+
+    @Test
+    public void factionDoesntContainMember(){
+        Faction faction = new Faction("Shrek & Co");
+        Ranged shrek = new Ranged("Shrek");
+        boolean isShrekMember = faction.containsMember(shrek);
+        assertEquals(false, isShrekMember);
+    }
+
+    @Test
+    public void addingMemberToFaction(){
+        Faction faction = new Faction("Shrek & Co");
+        Ranged shrek = new Ranged("Shrek");
+        faction.addMember(shrek);
+        boolean isShrekMember = faction.containsMember(shrek);
+        assertEquals(true, isShrekMember);
+    }
+
+    @Test
+    public void cantAddMemberIfBelongsToFaction(){
+        Faction faction = new Faction("Shrek & Co");
+        Ranged shrek = new Ranged("Shrek");
+        faction.addMember(shrek);
+        faction.addMember(shrek);
+        boolean isShrekMember = faction.containsMember(shrek);
+        assertEquals(true, isShrekMember);
+    }
+
+    @Test
+    public void characterBelongsToFaction(){
+        Faction faction = new Faction("Shrek & Co");
+        Ranged shrek = new Ranged("Shrek");
+        faction.addMember(shrek);
+        List<Faction> shrekFactions = shrek.getFactions();
+        assertEquals(1, shrekFactions.size());
+    }
+
+    @Test
+    public void addingCharacterTo2Factions(){
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        Faction duloc = new Faction("Duloc");
+        Ranged shrek = new Ranged("Shrek");
+        shrekAndCo.addMember(shrek);
+        duloc.addMember(shrek);
+        boolean shrekBelongsToshrekAndCo = shrekAndCo.containsMember(shrek);
+        boolean shrekBelongsToDuloc = duloc.containsMember(shrek);
+        assertEquals(true, shrekBelongsToshrekAndCo);
+        assertEquals(true, shrekBelongsToDuloc);
+    }
+
+    @Test
+    public void characterBelongsTo2Factions(){
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        Faction duloc = new Faction("Duloc");
+        Ranged shrek = new Ranged("Shrek");
+        shrekAndCo.addMember(shrek);
+        duloc.addMember(shrek);
+        List<Faction> shrekFactions = shrek.getFactions();
+        assertEquals(2, shrekFactions.size());
+    }
+
+    @Test
+    public void throwingOutMemberFromFaction(){
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        Ranged shrek = new Ranged("Shrek");
+        shrekAndCo.addMember(shrek);
+        shrekAndCo.removeMember(shrek);
+        boolean shrekBelongs = shrekAndCo.containsMember(shrek);
+        List<Faction> shrekFactions = shrek.getFactions();
+        assertEquals(false, shrekBelongs);
+        assertEquals(0, shrekFactions.size());
+    }
+
+    @Test
+    public void charactersAreAllies(){
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        Ranged shrek = new Ranged("Shrek");
+        Ranged fiona = new Ranged("Fiona");
+        shrekAndCo.addMember(shrek);
+        shrekAndCo.addMember(fiona);
+        boolean areAlies = shrekAndCo.areAllies(shrek, fiona);
+        assertEquals(true, areAlies);
+    }
+
+    @Test
+    public void AttackBetweenAlies(){
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        Ranged shrek = new Ranged("Shrek");
+        Ranged fiona = new Ranged("Fiona");
+        shrekAndCo.addMember(shrek);
+        shrekAndCo.addMember(fiona);
+        Field battlefield = new Field("Far far away");
+        fiona.setField(battlefield);
+        shrek.setField(battlefield);
+        Attack shrekAttacksFiona = new Attack(shrek, fiona);
+        boolean areAlies = shrekAttacksFiona.getAreAlies();
+        assertEquals(true, areAlies);
+    }
+
+    @Test
+    public void AttackBetweenEnemies(){
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        Faction fionaAndCo = new Faction("Fiona & Co");
+        Ranged shrek = new Ranged("Shrek");
+        Ranged fiona = new Ranged("Fiona");
+        shrekAndCo.addMember(shrek);
+        fionaAndCo.addMember(fiona);
+        Field battlefield = new Field("Far far away");
+        fiona.setField(battlefield);
+        shrek.setField(battlefield);
+        Attack shrekAttacksFiona = new Attack(shrek, fiona);
+        boolean areAlies = shrekAttacksFiona.getAreAlies();
+        assertEquals(false, areAlies);
+    }
+
+    @Test
+    public void AttackOnBetweenAlies(){
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        Ranged shrek = new Ranged("Shrek");
+        Ranged fiona = new Ranged("Fiona");
+        shrekAndCo.addMember(shrek);
+        shrekAndCo.addMember(fiona);
+        Field battlefield = new Field("Far far away");
+        fiona.setField(battlefield);
+        shrek.setField(battlefield);
+        Attack shrekAttacksFiona = new Attack(shrek, fiona);
+        shrekAttacksFiona.on();
+        int fionasHealth = fiona.getHealth();
+        assertEquals(1000, fionasHealth);
+    }
+    @Test
+    public void AttackOnBetweenEnemies(){
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        Faction fionaAndCo = new Faction("Fiona & Co");
+        Ranged shrek = new Ranged("Shrek");
+        Ranged fiona = new Ranged("Fiona");
+        shrekAndCo.addMember(shrek);
+        fionaAndCo.addMember(fiona);
+        Field battlefield = new Field("Far far away");
+        fiona.setField(battlefield);
+        shrek.setField(battlefield);
+        Attack shrekAttacksFiona = new Attack(shrek, fiona);
+        shrekAttacksFiona.on();
+        int fionasHealth = fiona.getHealth();
+        assertEquals(950, fionasHealth);
+    }
+
+    @Test
+    public void AttackOnBetweenAliesInFaction1(){
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        Faction fionaAndCo = new Faction("Fiona & Co");
+        Ranged shrek = new Ranged("Shrek");
+        Ranged fiona = new Ranged("Fiona");
+        shrekAndCo.addMember(shrek);
+        shrekAndCo.addMember(fiona);
+        fionaAndCo.addMember(fiona);
+        Field battlefield = new Field("Far far away");
+        fiona.setField(battlefield);
+        shrek.setField(battlefield);
+        Attack shrekAttacksFiona = new Attack(shrek, fiona);
+        shrekAttacksFiona.on();
+        int fionasHealth = fiona.getHealth();
+        assertEquals(1000, fionasHealth);
+    }
+
+    @Test
+    public void charactersWithoutFactionCanAttack(){
+        Character shrek = new Character("Shrek");
+        Character fiona = new Character("Fiona");
+        Field battlefield = new Field("Far far away");
+        fiona.setField(battlefield);
+        shrek.setField(battlefield);
+        Attack shrekAttacksFiona = new Attack(shrek, fiona );
+        shrekAttacksFiona.on();
+        int fionasHealth = fiona.getHealth();
+        assertEquals(950, fionasHealth);
+    }
+
+    @Test
+    public void characterIsCreatedWithoutFaction(){
+        Character shrek = new Character("Shrek");
+        int shrekFactions = shrek.getFactions().size();
+        assertEquals(0, shrekFactions);
+    }
+
+    @Test
+    public void aliesCanHealEachOtherAfterAttack(){
+        Ranged shrek = new Ranged("Shrek");
+        Ranged fiona = new Ranged("Fiona");
+        Ranged hadaMadrina = new Ranged("Hada Madrina");
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        shrekAndCo.addMember(shrek);
+        shrekAndCo.addMember(fiona);
+        Field battlefield = new Field("Far far away");
+        fiona.setField(battlefield);
+        shrek.setField(battlefield);
+        hadaMadrina.setField(battlefield);
+        Attack hadaMadrinaAttacksShrek = new Attack(hadaMadrina, shrek);
+        hadaMadrinaAttacksShrek.on();
+        Heal fionaHealsShrek = new Heal(fiona, shrek);
+        fionaHealsShrek.on();
+        int shreksHealth = shrek.getHealth();
+        assertEquals(1000, shreksHealth);
+
+    }
+
+    @Test
+    public void enemiesCantHealEachOtherAfterAttack(){
+        Ranged shrek = new Ranged("Shrek");
+        Ranged hadaMadrina = new Ranged("Hada Madrina");
+        Faction shrekAndCo = new Faction("Shrek & Co");
+        shrekAndCo.addMember(shrek);
+        Field battlefield = new Field("Far far away");
+        shrek.setField(battlefield);
+        hadaMadrina.setField(battlefield);
+        Attack hadaMadrinaAttacksShrek = new Attack(hadaMadrina, shrek);
+        hadaMadrinaAttacksShrek.on();
+        Heal hadaMadrinaHealsShrek = new Heal(hadaMadrina, shrek);
+        hadaMadrinaHealsShrek.on();
+        int shreksHealth = shrek.getHealth();
+        assertEquals(950, shreksHealth);
+
+    }
+
+    @Test
+    public void characterCanHealHimself(){
+        Ranged shrek = new Ranged("Shrek");
+        Ranged hadaMadrina = new Ranged("Hada Madrina");
+        Field battlefield = new Field("Far far away");
+        shrek.setField(battlefield);
+        hadaMadrina.setField(battlefield);
+        Attack hadaMadrinaAttacksShrek = new Attack(hadaMadrina, shrek);
+        hadaMadrinaAttacksShrek.on();
+        Heal shrekHealsHimself = new Heal(shrek, shrek);
+        shrekHealsHimself.on();
+        int shreksHealth = shrek.getHealth();
+        assertEquals(1000, shreksHealth);
+    }
+
+    //GAMING DEMO - EVERY POSSIBLE SCENARIO//
+    @Test
+    public void gamingDemo(){
+        //Creating battlefield
+        Field field = new Field("island of Paradise");
+        //Creating factions
+        Faction surveyCorps = new Faction("Survey Corps");
+        Faction titans = new Faction("Titans");
+        //HUMANS
+        //Creating Survey Corps Integers
+        Ranged eren = new Ranged("Eren");
+        Ranged mikasa = new Ranged("Mikasa");
+        Ranged armin = new Ranged("Armin");
+        Ranged levi = new Ranged("Levi");
+        //Setting levels
+        eren.setLevel(10);
+        armin.setLevel(6);
+        mikasa.setLevel(10);
+        levi.setLevel(10);
+        //Setting position
+        eren.setPosition(2,4);
+        armin.setPosition(2,2);
+        mikasa.setPosition(3,4);
+        levi.setPosition(8,6);
+        //Adding Integers to Survey Coprs faction
+        List<Ranged> expolorersList = List.of(eren, mikasa, armin, levi);
+        expolorersList.forEach(Ranged-> {surveyCorps.addMember(Ranged); Ranged.setField(field); });
+
+        //TITANS
+        //Creating titans
+        Melee titan1 = new Melee("Titan 1");
+        Melee titan2 = new Melee("Titan 2");
+        Melee titan3 = new Melee("Titan 3");
+        Melee titan4 = new Melee("Titan 4");
+        //Setting levels
+        titan2.setLevel(3);
+        titan3.setLevel(6);
+        titan4.setLevel(10);
+        //Setting position
+        titan1.setPosition(1,2);
+        titan2.setPosition(3,5);
+        titan3.setPosition(2,3);
+        titan4.setPosition(8,20); //out of battlefield
+        //Adding titans to faction
+        List<Melee> titansList = List.of(titan1, titan2, titan3, titan4);
+        titansList.forEach(Melee-> {titans.addMember(Melee); Melee.setField(field);});
+
+        //Titan4 attemps to attack Levi but can't bc is out of field
+        Attack titan4AttacksLevi = new Attack(titan4, levi);
+        titan4AttacksLevi.on();
+
+        //Eren attakcs titan1 and drops him 75 health points
+        Attack erenAttacksT1 = new Attack(eren, titan1);
+        erenAttacksT1.on();
+
+        //Titan1 can't attack eren back bc he's out of range
+        Attack t1AttacksEren = new Attack(titan1,eren);
+        t1AttacksEren.on();
+
+        //Mikasa kills titan1
+        Attack mikasaKillsT1 = new Attack(mikasa, titan1);
+        for(int i = 1; i <= 15; i++){
+            mikasaKillsT1.on();
+        }
+
+        //Titan3 attemps to heal titan1 but can't bc he's dead
+        Heal t3Healst1 = new Heal(titan3, titan1);
+        t3Healst1.on();
+
     }
 }

@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839c5b5b-97a7-4f83-b559-9795a679085c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/katas/Attack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/katas/Heal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Attack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/katas/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Faction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Faction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/katas/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Field.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" afterDir="false" />
     </list>
@@ -77,8 +79,8 @@
       <recent name="katas" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CharacterTest.attackerAttacksTargetButDoesntHurtHim">
-    <configuration name="CharacterTest.attackerAttacksTarget" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CharacterTest.gamingDemo">
+    <configuration name="CharacterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -91,7 +93,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.attackerAttacksTarget&quot;" />
+            <option value="&quot;katas.CharacterTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -101,7 +103,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.attackerAttacksTargetButDoesntHurtHim" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.aliesCanHealEachOtherAfterAttack" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -114,7 +116,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.attackerAttacksTargetButDoesntHurtHim&quot;" />
+            <option value="&quot;katas.CharacterTest.aliesCanHealEachOtherAfterAttack&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -124,7 +126,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.attackerCanAttackTarget" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.characterCanHealHimself" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -137,7 +139,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.attackerCanAttackTarget&quot;" />
+            <option value="&quot;katas.CharacterTest.characterCanHealHimself&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -147,7 +149,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.attackerCantAttackTarget" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.enemiesCantHealEachOtherAfterAttack" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -160,7 +162,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.attackerCantAttackTarget&quot;" />
+            <option value="&quot;katas.CharacterTest.enemiesCantHealEachOtherAfterAttack&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -170,7 +172,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.calcDistance" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.gamingDemo" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -183,7 +185,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.calcDistance&quot;" />
+            <option value="&quot;katas.CharacterTest.gamingDemo&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -195,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CharacterTest.attackerAttacksTargetButDoesntHurtHim" />
-        <item itemvalue="Gradle.CharacterTest.attackerAttacksTarget" />
-        <item itemvalue="Gradle.CharacterTest.attackerCanAttackTarget" />
-        <item itemvalue="Gradle.CharacterTest.attackerCantAttackTarget" />
-        <item itemvalue="Gradle.CharacterTest.calcDistance" />
+        <item itemvalue="Gradle.CharacterTest.gamingDemo" />
+        <item itemvalue="Gradle.CharacterTest" />
+        <item itemvalue="Gradle.CharacterTest.characterCanHealHimself" />
+        <item itemvalue="Gradle.CharacterTest.enemiesCantHealEachOtherAfterAttack" />
+        <item itemvalue="Gradle.CharacterTest.aliesCanHealEachOtherAfterAttack" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +217,7 @@
       <workItem from="1654611396425" duration="20000" />
       <workItem from="1654673097374" duration="22805000" />
       <workItem from="1654704757334" duration="8167000" />
-      <workItem from="1654758233842" duration="8357000" />
+      <workItem from="1654758233842" duration="23332000" />
     </task>
     <servers />
   </component>

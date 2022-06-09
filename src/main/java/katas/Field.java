@@ -9,10 +9,15 @@ public class Field {
     private int height = 10*scale;
     private int xLimit = this.width;
     private int yLimit = this.height;
+    private String name;
     private List<Coord> fieldCoords;
 
+    public Field(String name){
+        this.name = name;
+        this.fieldCoords = createCoords();
+    }
     //CreateCoords
-    public void createCoords(){
+    public List<Coord> createCoords(){
         List<Coord> coords = new ArrayList<>();
         for(int y = 0; y<= this.height; y++){
             for(int x = 0; x <= this.width; x++){
@@ -21,41 +26,33 @@ public class Field {
             }
         }
 
-        this.fieldCoords = coords;
+        return coords;
     }
 
     public List<Coord> getCoords(){
         return this.fieldCoords;
     }
+    public String getName(){return this.name;}
 
-     public boolean isCharPositonInField(Coord o) {
-        boolean isEqual =false;
-        if (o == null) {
-            isEqual = false;
-        }
-       for(Coord coord: this.fieldCoords){
-           if(coord.getY() == o.getY() && coord.getX() == o.getX()){
-               isEqual = true;
-           }
-       }
-       return isEqual;
+     public boolean isCoordOnField(Coord position) {
+        if(position == null) return false;
+        boolean isCoordOnField = false;
+        for(Coord coord: this.fieldCoords){
+            if(coord.getY() == position.getY() && coord.getX() == position.getX()) isCoordOnField = true;
+       }return  isCoordOnField;
     }
 
-    public double calcDistance(Coord charAPosition, Coord charBPosition){
-        double distance = -1;
-        if(isCharPositonInField(charAPosition) && isCharPositonInField(charBPosition)){
-            //System.out.println("A: ("+charAPosition.getX()+","+charAPosition.getY()+")");
-            //System.out.println("B: ("+charBPosition.getX()+","+charBPosition.getY()+")");
-            int x2 = charBPosition.getX();
-            int x1 = charAPosition.getX();
-            int y2 = charBPosition.getY();
-            int y1 = charAPosition.getY();
+    public double calcDistance(Character charA, Character charB){
+        Coord charAPos = charA.getPosition();
+        Coord charBPos = charB.getPosition();
 
-            double d = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1), 2));
-              distance = Math.floor(d*100.0)/100.0;
-        }else{
-            System.out.println("Character is not in field");
-        }
-        return  distance;
+        if(!isCoordOnField(charAPos) || !isCoordOnField(charBPos)) return -1;
+        int x2 = charBPos.getX();
+        int x1 = charAPos.getX();
+        int y2 = charBPos.getY();
+        int y1 = charAPos.getY();
+
+        double d = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1), 2));
+        return Math.floor(d*100.0)/100.0;
     }
 }
