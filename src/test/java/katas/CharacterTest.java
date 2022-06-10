@@ -712,4 +712,35 @@ class CharacterTest {
         assertEquals(3, coordContentSize);
     }
 
+    @Test
+    public void placingThingsAndChars(){
+        Field field = new Field("Far far away");
+        Character shrek = new Character("Shrek");
+        Character fiona = new Character("Fiona");
+        Thing tree = new Thing("Tree", new Coord(2,2), field);
+        shrek.setField(field);
+        fiona.setField(field);
+        shrek.setPosition(new Coord(2,2));
+        fiona.setPosition(new Coord(2,2));
+        List<Coord> coordsFiled = field.getCoords().stream().filter(Coord -> Coord.getContent().size()>0).collect(Collectors.toList());
+        int coordContentSize = coordsFiled.get(0).getContent().size();
+        System.out.println(tree.getPosition().getContent());
+        assertEquals(3, coordContentSize);
+    }
+
+    @Test
+    public void getCoordContent(){
+        Field field = new Field("Far far away");
+        Character shrek = new Character("Shrek");
+        Character fiona = new Character("Fiona");
+        Thing tree = new Thing("Tree", new Coord(2,2), field);
+        Thing rock = new Thing("Rock", new Coord(3,3), field);
+        shrek.setField(field);
+        fiona.setField(field);
+        shrek.setPosition(new Coord(2,2));
+        fiona.setPosition(new Coord(2,2));
+        field.getCoordContent(new Coord(2,2));
+        field.getFieldContent();
+    }
+
 }

@@ -2,6 +2,7 @@ package katas;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Field {
     private int scale = 1;
@@ -41,9 +42,18 @@ public class Field {
        }return  false;
     }
 
+    public double calcDistance(Coord coordA, Coord coordB){
+        if(!isCoordOnField(coordA) || !isCoordOnField(coordB)) return -1;
+        int x2 = coordB.getX();
+        int x1 = coordA.getX();
+        int y2 = coordB.getY();
+        int y1 = coordA.getY();
+
+        double d = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1), 2));
+        return Math.floor(d*100.0)/100.0;
+    }
 
     public void placeContent(Coord position){
-        System.out.println(position);
         if(!isCoordOnField(position)) return;
         for (int i = 0; i < this.fieldCoords.size(); i++){
             if(this.fieldCoords.get(i).getX() == position.getX() && this.fieldCoords.get(i).getY() == position.getY()){
@@ -59,21 +69,9 @@ public class Field {
         }
     }
 
-    public double calcDistance(Coord coordA, Coord coordB){
-
-        if(!isCoordOnField(coordA) || !isCoordOnField(coordB)) return -1;
-        int x2 = coordB.getX();
-        int x1 = coordA.getX();
-        int y2 = coordB.getY();
-        int y1 = coordA.getY();
-
-        double d = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1), 2));
-        return Math.floor(d*100.0)/100.0;
-    }
 
     public void castElement(Coord position){
         String simpleName = position.getContent().get(0).getClass().getCanonicalName();
-        if(simpleName != "katas.Character" && simpleName != "katas.Thing" ) return;
         if (simpleName == "katas.Character"){
             Character character = (Character) position.getContent().get(0);
             removeFromField(character);
@@ -91,6 +89,26 @@ public class Field {
     public void removeFromField(Thing thing){
         thing.removeFromField();
         System.out.println(thing.getName()+" has been erased from field.");
+    }
+
+    public List<Object> getCoordContent(Coord position){
+        Coord coordFound = this.fieldCoords.stream().filter(Coord -> Coord.getX() == position.getX() && Coord.getY() == position.getY()).collect(Collectors.toList()).get(0);
+        System.out.println(coordFound.getContent());
+        return coordFound.getContent();
+    }
+
+    public List<Object> getFieldContent(){
+        List<Coord> coordsWithContent = new ArrayList<>();
+        List<Object> coordsContent = new ArrayList<>();
+        this.fieldCoords.forEach(Coord -> {
+            if(Coord.getContent().size()>0) {
+                coordsWithContent.add(Coord);
+                Coord.getContent().forEach(Object -> coordsContent.add(Object));
+            }
+        });
+        System.out.println(coordsWithContent);
+        System.out.println(coordsContent);
+        return coordsContent;
     }
 
 }
