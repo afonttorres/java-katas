@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839c5b5b-97a7-4f83-b559-9795a679085c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/library/Author.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/library/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/library/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/library/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/library/AuthorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/library/BookTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/library/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Thing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Thing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -72,11 +77,13 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="library" />
+      <recent name="Library" />
       <recent name="katas" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CharacterTest.gamingDemo">
-    <configuration name="CharacterTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.AuthorTest.AuthorCanSeeIfBookRented">
+    <configuration name="AuthorTest.AuthorCanSeeIfBookRented" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -89,7 +96,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest&quot;" />
+            <option value="&quot;library.AuthorTest.AuthorCanSeeIfBookRented&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -99,7 +106,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.CharacterHasInitProps" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BookTest.BookCanBeRented" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -112,7 +119,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.CharacterHasInitProps&quot;" />
+            <option value="&quot;library.BookTest.BookCanBeRented&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -122,7 +129,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.gamingDemo" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BookTest.BookCantBeRentedTwice" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -135,7 +142,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.gamingDemo&quot;" />
+            <option value="&quot;library.BookTest.BookCantBeRentedTwice&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -145,7 +152,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.thingsCanAttackCharacter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserTest.UserCanRentMultipleBooks" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -158,7 +165,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.thingsCanAttackCharacter&quot;" />
+            <option value="&quot;library.UserTest.UserCanRentMultipleBooks&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -168,7 +175,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.thingsCanBeDestroyed" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserTest.UserCantRentBook" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -181,7 +188,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.thingsCanBeDestroyed&quot;" />
+            <option value="&quot;library.UserTest.UserCantRentBook&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -193,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CharacterTest.gamingDemo" />
-        <item itemvalue="Gradle.CharacterTest (1)" />
-        <item itemvalue="Gradle.CharacterTest.CharacterHasInitProps" />
-        <item itemvalue="Gradle.CharacterTest.thingsCanAttackCharacter" />
-        <item itemvalue="Gradle.CharacterTest.thingsCanBeDestroyed" />
+        <item itemvalue="Gradle.AuthorTest.AuthorCanSeeIfBookRented" />
+        <item itemvalue="Gradle.UserTest.UserCanRentMultipleBooks" />
+        <item itemvalue="Gradle.UserTest.UserCantRentBook" />
+        <item itemvalue="Gradle.BookTest.BookCantBeRentedTwice" />
+        <item itemvalue="Gradle.BookTest.BookCanBeRented" />
       </list>
     </recent_temporary>
   </component>
@@ -214,7 +221,7 @@
       <workItem from="1654673097374" duration="22805000" />
       <workItem from="1654704757334" duration="8167000" />
       <workItem from="1654758233842" duration="32794000" />
-      <workItem from="1654845095185" duration="14001000" />
+      <workItem from="1654845095185" duration="18539000" />
     </task>
     <servers />
   </component>
