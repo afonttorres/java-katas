@@ -32,7 +32,7 @@ public class Thing {
         return this.field;
     }
     //SETTERS
-    public void eraseFromField(){
+    public void removeFromField(){
         this.position = new Coord(-1,-1);
     }
     //METHODS
@@ -40,7 +40,7 @@ public class Thing {
         this.health -= attacker.getAttackPower();
         if(this.health <= 0) {
             this.health = 0;
-            eraseFromField();
+            removeFromField();
         }
     }
 }

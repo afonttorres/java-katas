@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="839c5b5b-97a7-4f83-b559-9795a679085c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Attack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Heal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Heal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/katas/Thing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Thing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" afterDir="false" />
     </list>
@@ -78,7 +75,7 @@
       <recent name="katas" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CharacterTest.thingsCanBeDestroyed">
+  <component name="RunManager" selected="Gradle.CharacterTest.gamingDemo">
     <configuration name="CharacterTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -102,7 +99,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterTest.AttackBetweenEnemies" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.CharacterHasInitProps" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -115,30 +112,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.AttackBetweenEnemies&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="CharacterTest.attackerCanAttackTarget" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;katas.CharacterTest.attackerCanAttackTarget&quot;" />
+            <option value="&quot;katas.CharacterTest.CharacterHasInitProps&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -162,6 +136,29 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;katas.CharacterTest.gamingDemo&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CharacterTest.thingsCanAttackCharacter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;katas.CharacterTest.thingsCanAttackCharacter&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -196,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CharacterTest.thingsCanBeDestroyed" />
         <item itemvalue="Gradle.CharacterTest.gamingDemo" />
         <item itemvalue="Gradle.CharacterTest (1)" />
-        <item itemvalue="Gradle.CharacterTest.attackerCanAttackTarget" />
-        <item itemvalue="Gradle.CharacterTest.AttackBetweenEnemies" />
+        <item itemvalue="Gradle.CharacterTest.CharacterHasInitProps" />
+        <item itemvalue="Gradle.CharacterTest.thingsCanAttackCharacter" />
+        <item itemvalue="Gradle.CharacterTest.thingsCanBeDestroyed" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +214,7 @@
       <workItem from="1654673097374" duration="22805000" />
       <workItem from="1654704757334" duration="8167000" />
       <workItem from="1654758233842" duration="32794000" />
-      <workItem from="1654845095185" duration="11329000" />
+      <workItem from="1654845095185" duration="14001000" />
     </task>
     <servers />
   </component>

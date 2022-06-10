@@ -9,144 +9,29 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CharacterTest {
 
     //ITERATION 1//
-    //HEALT, ISALIVE & LEVEL DEFAULT//
+    //DEFAULT VALUES//
     @Test
-    public void charactersHealthStarts1000(){
+    void CharacterHasInitProps(){
         Character shrek = new Character("Shrek");
-        int result = shrek.getHealth();
-        assertEquals(1000,result);
+        int health = shrek.getHealth();
+        int level = shrek.getLevel();
+        int attackPower = shrek.getAttackPower();
+        int healingPower = shrek.getHealingPower();
+        int maxRange = shrek.getMaxRange();
+        boolean isAlive = shrek.getIsAlive();
+        String name = shrek.getName();
+        assertEquals(1000, health);
+        assertEquals(1, level);
+        assertEquals(50, attackPower);
+        assertEquals(50,healingPower);
+        assertEquals(2, maxRange);
+        assertEquals(true, isAlive);
+        assertEquals("Shrek", name);
     }
-
-    @Test
-    public void characterIsAlive(){
-        Character shrek = new Character("Shrek");
-        boolean result = shrek.getIsAlive();
-        assertEquals(true,result);
-    }
-
-    @Test
-    public void charactersLevelIs1(){
-        Character shrek = new Character("Shrek");
-        int result = shrek.getLevel();
-        assertEquals(1,result);
-    }
-
-    //NAME, ATTACKPOWER & HEALINGPOWER//
-    @Test
-    public void characterHasName(){
-        Character shrek = new Character("Shrek");
-        String result = shrek.getName();
-        assertEquals("Shrek",result);
-    }
-
-    @Test
-    public void characterHasAttackPower(){
-        Character shrek = new Character("Shrek");
-        int result = shrek.getAttackPower();
-        assertEquals(50,result);
-    }
-
-    @Test
-    public void characterHasHealingPower(){
-        Character shrek = new Character("Shrek");
-        int result = shrek.getHealingPower();
-        assertEquals(50,result);
-    }
-
-    //HURT//
-    /*@Test
-    public void characterGetsHurt(){
-        Character shrek = new Character("Shrek", 50, 50);
-        shrek.getsHurt(100);
-        int result = shrek.getHealth();
-        assertEquals(900,result);
-    }
-
-    @Test
-    public void charactersDamageExceedsHealth(){
-        Character shrek = new Character("Shrek", 50, 50);
-        shrek.getsHurt(900);
-        shrek.getsHurt(101);
-        int healthRes = shrek.getHealth();
-        boolean isAliveRes = shrek.getIsAlive();
-        assertEquals(0,healthRes);
-        assertEquals(false, isAliveRes);
-    }
-
-    //Fails bc there's no interactor
-    @Test
-    public void characterDies(){
-        Character shrek = new Character("Shrek", 50, 50);
-        shrek.getsHurt(1000);
-        int healthRes = shrek.getHealth();
-        boolean isAliveRes = shrek.getIsAlive();
-        assertEquals(0,healthRes);
-        assertEquals(false, isAliveRes);
-    }
-
-    //HEAL//
-    //Fails bc there's no interactor
-    @Test
-    public void characterGetsHealed(){
-        Character shrek = new Character("Shrek", 50, 50);
-        shrek.getsHurt(200);
-        shrek.getsHealed(100);
-        int healthRes = shrek.getHealth();
-        boolean isAliveRes = shrek.getIsAlive();
-        assertEquals(900,healthRes);
-        assertEquals(true, isAliveRes);
-    }
-
-    //Fails bc there's no interactor
-    @Test
-    public void deadCharacterCantBeHealed(){
-        Character shrek = new Character("Shrek", 50, 50);
-        shrek.getsHurt(1000);
-        shrek.getsHealed(100);
-        int healthRes = shrek.getHealth();
-        boolean isAliveRes = shrek.getIsAlive();
-        assertEquals(0,healthRes);
-        assertEquals(false, isAliveRes);
-    }
-
-    //Doesn't fail even if there's no interactor bc result is always 1000
-    @Test
-    public void characterCantExceedMaxHealth(){
-        Character shrek = new Character("Shrek", 50, 50);
-        shrek.getsHurt(200);
-        shrek.getsHealed(300);
-        int result = shrek.getHealth();
-        assertEquals(1000,result);
-    }
-
-    //CHARACTER HURTS CHARACTER// - comment after iteration 2
-    //Fails bc there's no interactor
-    @Test
-    public void characterHurtsCharacterIT1(){
-        Character shrek = new Character("Shrek", 50, 50);
-        Character fiona = new Character("Fiona", 50, 50);
-        shrek.getsHurt(fiona.getAttackPower());
-        int result = shrek.getHealth();
-        assertEquals(950, result);
-    }
-
-    //CHARACTER HURTS AND HEALS CHARACTER// - comment after iteration 2
-    //Fails bc there's no interactor
-    @Test
-    public void characterHurtsAndHealsCharacterIT1(){
-        Character shrek = new Character("Shrek", 50, 50);
-        Character fiona = new Character("Fiona", 50, 50);
-        shrek.getsHurt(fiona.getAttackPower());
-        shrek.getsHealed(fiona.getHealingPower());
-        int result = shrek.getHealth();
-        assertEquals(1000, result);
-    }
-     */
 
     //ITERATION 2
-    //CHARACTER CAN HURT CHARACTER
     @Test
-    public void characterHurtsCharacterIT2(){
+    public void characterHurtsCharacter(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         fiona.attacks(shrek);
@@ -154,18 +39,16 @@ class CharacterTest {
         assertEquals( 950, result);
     }
 
-    //CHARACTER CAN'T HURT HIMSELF
     @Test
-    public void characterCantHurtHimselfIT2(){
+    public void characterCantHurtHimself(){
         Character shrek = new Character("Shrek");
         shrek.attacks(shrek);
         int result = shrek.getHealth();
         assertEquals( 1000, result);
     }
 
-    //CHARACTER CAN'T HEAL CHARACTER
     @Test
-    public void characterCantHealCharacterIT2(){
+    public void characterCantHealCharacter(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         fiona.attacks(shrek);
@@ -174,9 +57,8 @@ class CharacterTest {
         assertEquals( 950, result);
     }
 
-    //CHARACTER CAN HEAL HIMSELF
     @Test
-    public void characterCanHealHimselfIT2(){
+    public void characterCanHealHimself(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         fiona.attacks(shrek);
@@ -185,7 +67,6 @@ class CharacterTest {
         assertEquals( 1000, result);
     }
 
-    //CHARACTER ATTACK POWER GETS REDUCED
     @Test
     public void charactersAttackPowerGetsRaisedByOponentLevel(){
         Character shrek = new Character("Shrek");
@@ -196,7 +77,6 @@ class CharacterTest {
         assertEquals( 925, result);
     }
 
-    //CHARACTER ATTACK POWER GETS RAISED
     @Test
     public void charactersAttackPowerGetsReducedByOponentLevel(){
         Character shrek = new Character("Shrek");
@@ -208,37 +88,24 @@ class CharacterTest {
     }
 
     //ITERATION 3
-    //MELEE CAN BE CREATED
     @Test
     public void meleeCanBeCreated(){
         Melee shrek = new Melee("Shrek");
-        String result = shrek.getName();
-        assertEquals("Shrek",result);
+        String name = shrek.getName();
+        int maxRange = shrek.getMaxRange();
+        assertEquals("Shrek",name);
+        assertEquals(2,maxRange);
     }
-
-    //MELEE HAS MAXRANGE
-    @Test
-    public void meleeHasMaxRange(){
-        Melee shrek = new Melee("Shrek");
-        int result = shrek.getMaxRange();
-        assertEquals(2,result);
-    }
-
-    //RANGED CAN BE CREATED
     @Test
     public void rangedCanBeCreated(){
         Ranged shrek = new Ranged("Shrek");
-        String result = shrek.getName();
-        assertEquals("Shrek",result);
+        String name = shrek.getName();
+        int maxRange = shrek.getMaxRange();
+        assertEquals("Shrek",name);
+        assertEquals(20,maxRange);
+
     }
 
-    //RANGED HAS MAXRANGE
-    @Test
-    public void rangedHasMaxRange(){
-        Ranged shrek = new Ranged("Shrek");
-        int result = shrek.getMaxRange();
-        assertEquals(20,result);
-    }
 
     //MELEE KILLS RANGED
     @Test
@@ -613,7 +480,7 @@ class CharacterTest {
     }
 
     @Test
-    public void characterCanHealHimself(){
+    public void characterCanStillHealHimself(){
         Ranged shrek = new Ranged("Shrek");
         Ranged hadaMadrina = new Ranged("Hada Madrina");
         Field battlefield = new Field("Far far away");
@@ -670,4 +537,18 @@ class CharacterTest {
         assertEquals(true, treeIsDestroyed);
         assertEquals(false, treeIsntOnField);
     }
+
+    @Test
+    public void thingsCanAttackCharacter(){
+        Field field = new Field("Far far away");
+        Thing tree = new Thing("Tree", new Coord(2,2), field);
+        Ranged shrek = new Ranged("Shrek");
+        shrek.setField(field);
+        //Attack treeAttacksShrek = new Attack(tree);
+        //treeAttacksShrek.on(shrek);
+        int shrekHealth = shrek.getHealth();
+        assertEquals(1000, shrekHealth);
+    }
+
+
 }
