@@ -3,6 +3,7 @@ package katas;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,7 +32,7 @@ class CharacterTest {
 
     //ITERATION 2
     @Test
-    public void characterHurtsCharacter(){
+    public void CharacterHurtsCharacter(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         fiona.attacks(shrek);
@@ -40,7 +41,7 @@ class CharacterTest {
     }
 
     @Test
-    public void characterCantHurtHimself(){
+    public void CharacterCantHurtHimself(){
         Character shrek = new Character("Shrek");
         shrek.attacks(shrek);
         int result = shrek.getHealth();
@@ -48,7 +49,7 @@ class CharacterTest {
     }
 
     @Test
-    public void characterCantHealCharacter(){
+    public void CharacterCantHealCharacter(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         fiona.attacks(shrek);
@@ -58,7 +59,7 @@ class CharacterTest {
     }
 
     @Test
-    public void characterCanHealHimself(){
+    public void CharacterCanHealHimself(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         fiona.attacks(shrek);
@@ -68,7 +69,7 @@ class CharacterTest {
     }
 
     @Test
-    public void charactersAttackPowerGetsRaisedByOponentLevel(){
+    public void CharactersAttackPowerGetsRaisedByOponentLevel(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         fiona.setLevel(6);//mec
@@ -78,7 +79,7 @@ class CharacterTest {
     }
 
     @Test
-    public void charactersAttackPowerGetsReducedByOponentLevel(){
+    public void CharactersAttackPowerGetsReducedByOponentLevel(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         shrek.setLevel(6);//mec
@@ -89,7 +90,7 @@ class CharacterTest {
 
     //ITERATION 3
     @Test
-    public void meleeCanBeCreated(){
+    public void MeleeCanBeCreated(){
         Melee shrek = new Melee("Shrek");
         String name = shrek.getName();
         int maxRange = shrek.getMaxRange();
@@ -97,7 +98,7 @@ class CharacterTest {
         assertEquals(2,maxRange);
     }
     @Test
-    public void rangedCanBeCreated(){
+    public void RangedCanBeCreated(){
         Ranged shrek = new Ranged("Shrek");
         String name = shrek.getName();
         int maxRange = shrek.getMaxRange();
@@ -106,10 +107,8 @@ class CharacterTest {
 
     }
 
-
-    //MELEE KILLS RANGED
     @Test
-    public void meleeAttacksRanged(){
+    public void MeleeAttacksRanged(){
         Melee shrek = new Melee("Shrek");
         Ranged fiona = new Ranged("Fiona");
         shrek.setAttackPower(1000);
@@ -121,7 +120,7 @@ class CharacterTest {
     }
 
     @Test
-    public void coordCanBeCreated(){
+    public void CoordCanBeCreated(){
         Coord coord = new Coord(0,0);
         int xRes = coord.getX();
         int yRes = coord.getY();
@@ -146,7 +145,7 @@ class CharacterTest {
     }
 
     @Test
-    public void meleeHasInitPosition(){
+    public void MeleeHasInitPosition(){
         Melee shrek = new Melee("Shrek");
         int xRes = shrek.getPosition().getX();
         int yRes = shrek.getPosition().getY();
@@ -156,7 +155,7 @@ class CharacterTest {
     }
 
     @Test
-    public void fieldContainsCharPosition(){
+    public void FieldContainsCharPosition(){
         Melee shrek = new Melee("Shrek");
         Field field = new Field("Far far away");
         shrek.setField(field);
@@ -165,10 +164,10 @@ class CharacterTest {
     }
 
     @Test
-    public void fieldDoesntContainCharPosition(){
+    public void FieldDoesntContainCharPosition(){
         Ranged fiona = new Ranged("Fiona");
         Field field = new Field("Far far away");
-        fiona.setPosition(2,15);
+        fiona.setPosition(new Coord(2,15));
         fiona.setField(field);
         boolean isCharInField = field.isCoordOnField(fiona.getPosition());
         assertEquals(false,isCharInField );
@@ -180,20 +179,20 @@ class CharacterTest {
         Melee shrek = new Melee("Shrek");
         Field field = new Field("Far far away");
         fiona.setField(field);
-        fiona.setPosition(5,2);
+        fiona.setPosition(new Coord(5,2));
         shrek.setField(field);
-        shrek.setPosition(8,4);
+        shrek.setPosition(new Coord(8,4));
         double result = field.calcDistance(fiona.getPosition(), shrek.getPosition());
         assertEquals(3.6, result);
     }
 
     @Test
-    public void attackerCanAttackTarget(){
+    public void AttackerCanAttackTarget(){
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
         Field field = new Field("Far far away");
-        fiona.setPosition(5,2);
-        shrek.setPosition(8,4);
+        fiona.setPosition(new Coord(5,2));
+        shrek.setPosition(new Coord(8,4));
         fiona.setField(field);
         shrek.setField(field);
         Attack attack = new Attack(fiona);
@@ -203,12 +202,12 @@ class CharacterTest {
     }
 
     @Test
-    public void attackerCantAttackTarget(){
+    public void AttackerCantAttackTarget(){
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
         Field field = new Field("Far far away");
-        fiona.setPosition(5,2);
-        shrek.setPosition(8,4);
+        fiona.setPosition(new Coord(5,2));
+        shrek.setPosition(new Coord(8,4));
         fiona.setField(field);
         shrek.setField(field);
         Attack attack = new Attack(shrek);
@@ -218,12 +217,12 @@ class CharacterTest {
     }
 
     @Test
-    public void attackerAttacksTarget(){
+    public void AttackerAttacksTarget(){
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
         Field field = new Field("Far far away");
-        fiona.setPosition(5,2);
-        shrek.setPosition(8,4);
+        fiona.setPosition(new Coord(5,2));
+        shrek.setPosition(new Coord(8,4));
         fiona.setField(field);
         shrek.setField(field);
         Attack fionaAttacksShrek = new Attack(fiona);
@@ -233,12 +232,12 @@ class CharacterTest {
     }
 
     @Test
-    public void attackerAttacksTargetButDoesntHurtHim(){
+    public void AttackerAttacksTargetButDoesntHurtHim(){
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
         Field field = new Field("Far far away");
-        fiona.setPosition(5,2);
-        shrek.setPosition(8,4);
+        fiona.setPosition(new Coord(5,2));
+        shrek.setPosition(new Coord(8,4));
         fiona.setField(field);
         shrek.setField(field);
         Attack shrekAttacksFiona = new Attack(shrek);
@@ -248,14 +247,14 @@ class CharacterTest {
     }
 
     @Test
-    public void factionCanBeCreated(){
+    public void FactionCanBeCreated(){
         Faction faction = new Faction("Shrek & Co");
         String factionName = faction.getName();
         assertEquals("Shrek & Co", factionName);
     }
 
     @Test
-    public void factionDoesntContainMember(){
+    public void FactionDoesntContainMember(){
         Faction faction = new Faction("Shrek & Co");
         Ranged shrek = new Ranged("Shrek");
         boolean isShrekMember = faction.containsMember(shrek);
@@ -282,7 +281,7 @@ class CharacterTest {
     }
 
     @Test
-    public void characterBelongsToFaction(){
+    public void CharacterBelongsToFaction(){
         Faction faction = new Faction("Shrek & Co");
         Ranged shrek = new Ranged("Shrek");
         faction.addMember(shrek);
@@ -304,7 +303,7 @@ class CharacterTest {
     }
 
     @Test
-    public void characterBelongsTo2Factions(){
+    public void CharacterBelongsTo2Factions(){
         Faction shrekAndCo = new Faction("Shrek & Co");
         Faction duloc = new Faction("Duloc");
         Ranged shrek = new Ranged("Shrek");
@@ -327,7 +326,7 @@ class CharacterTest {
     }
 
     @Test
-    public void charactersAreAllies(){
+    public void CharactersAreAllies(){
         Faction shrekAndCo = new Faction("Shrek & Co");
         Ranged shrek = new Ranged("Shrek");
         Ranged fiona = new Ranged("Fiona");
@@ -421,7 +420,7 @@ class CharacterTest {
     }
 
     @Test
-    public void charactersWithoutFactionCanAttack(){
+    public void CharactersWithoutFactionCanAttack(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         Field battlefield = new Field("Far far away");
@@ -434,14 +433,14 @@ class CharacterTest {
     }
 
     @Test
-    public void characterIsCreatedWithoutFaction(){
+    public void CharacterIsCreatedWithoutFaction(){
         Character shrek = new Character("Shrek");
         int shrekFactions = shrek.getFactions().size();
         assertEquals(0, shrekFactions);
     }
 
     @Test
-    public void aliesCanHealEachOtherAfterAttack(){
+    public void AliesCanHealEachOtherAfterAttack(){
         Ranged shrek = new Ranged("Shrek");
         Ranged fiona = new Ranged("Fiona");
         Ranged hadaMadrina = new Ranged("Hada Madrina");
@@ -462,7 +461,7 @@ class CharacterTest {
     }
 
     @Test
-    public void enemiesCantHealEachOtherAfterAttack(){
+    public void EnemiesCantHealEachOtherAfterAttack(){
         Ranged shrek = new Ranged("Shrek");
         Ranged hadaMadrina = new Ranged("Hada Madrina");
         Faction shrekAndCo = new Faction("Shrek & Co");
@@ -480,7 +479,7 @@ class CharacterTest {
     }
 
     @Test
-    public void characterCanStillHealHimself(){
+    public void CharacterCanStillHealHimself(){
         Ranged shrek = new Ranged("Shrek");
         Ranged hadaMadrina = new Ranged("Hada Madrina");
         Field battlefield = new Field("Far far away");
@@ -495,7 +494,7 @@ class CharacterTest {
     }
 
     @Test
-    public void thingsCanBeCreated(){
+    public void ThingsCanBeCreated(){
         Field field = new Field("Far far away");
         Thing tree = new Thing("Tree", new Coord(2,2), field);
         String name = tree.getName();
@@ -511,7 +510,7 @@ class CharacterTest {
     }
 
     @Test
-    public void thingsCanBeHurted(){
+    public void ThingsCanBeHurted(){
         Field field = new Field("Far far away");
         Thing tree = new Thing("Tree", new Coord(2,2), field);
         Ranged shrek = new Ranged("Shrek");
@@ -523,7 +522,7 @@ class CharacterTest {
     }
 
     @Test
-    public void thingsCanBeDestroyed(){
+    public void ThingsCanBeDestroyed(){
         Field field = new Field("Far far away");
         Thing tree = new Thing("Tree", new Coord(2,2), field);
         Ranged shrek = new Ranged("Shrek");
@@ -539,7 +538,7 @@ class CharacterTest {
     }
 
     @Test
-    public void thingsCanAttackCharacter(){
+    public void ThingsCanAttackCharacter(){
         Field field = new Field("Far far away");
         Thing tree = new Thing("Tree", new Coord(2,2), field);
         Ranged shrek = new Ranged("Shrek");
@@ -550,5 +549,167 @@ class CharacterTest {
         assertEquals(1000, shrekHealth);
     }
 
+    @Test
+    public void CharacterDiesAndGetRemovedFromFactionsAndField(){
+        Field field = new Field("Far far away");
+        Ranged shrek = new Ranged("Shrek");
+        shrek.setField(field);
+        Ranged fiona = new Ranged("Fiona");
+        fiona.setField(field);
+        Faction shreks = new Faction("Shreks");
+        shrek.becomeFactionMember(shreks);
+        Attack fionaAttacks = new Attack(fiona);
+        fiona.setAttackPower(1000);
+        fionaAttacks.on(shrek);
+
+        boolean isAlive = shrek.getIsAlive();
+        int enrolledFactions = shrek.getFactions().size();
+        boolean factionContainsHim = shreks.containsMember(shrek);
+        boolean isOnField = field.isCoordOnField(shrek.getPosition());
+        assertEquals(false, isAlive);
+        assertEquals(0, enrolledFactions);
+        assertEquals(false, factionContainsHim);
+        assertEquals(false, isOnField);
+
+    }
+
+    @Test
+    public void CoordHasContent(){
+        Field field = new Field("Far far away");
+        Coord position = new Coord(2,2);
+        Thing tree = new Thing("Tree", position, field);
+        int contentSize = tree.getPosition().getContent().size();
+        assertEquals(1, contentSize);
+    }
+
+    @Test
+    public void CoordCanHave3Things(){
+        Field field = new Field("Far far away");
+        Coord position = new Coord(2,2);
+        Thing tree = new Thing("Tree", position, field);
+        Thing rock = new Thing("Rock1", position, field);
+        Thing rock2 = new Thing("Rock2", position, field);
+        int contentSize = tree.getPosition().getContent().size();
+        assertEquals(3, contentSize);
+    }
+    @Test
+    public void CoordCanOnlyHave3Things(){
+        Field field = new Field("Far far away");
+        Coord position = new Coord(2,2);
+        Thing tree1 = new Thing("Tree1", position, field);
+        Thing tree2 = new Thing("Tree2", position, field);
+        Thing rock = new Thing("Rock1", position, field);
+        Thing rock2 = new Thing("Rock2", position, field);
+        int contentSize = tree1.getPosition().getContent().size();
+        assertEquals(3, contentSize);
+    }
+
+    @Test
+    public void CoordCantContentSameThing(){
+        Field field = new Field("Far far away");
+        Coord position = new Coord(2,2);
+        Thing tree1 = new Thing("Tree1", position, field);
+        position.setContent(tree1);
+        int contentSize = tree1.getPosition().getContent().size();
+        assertEquals(1, contentSize);
+    }
+
+    @Test
+    public void CoordHasCharacter(){
+        Field field = new Field("Far far away");
+        Character shrek = new Character("Shrek");
+        shrek.setPosition(new Coord(2,2));
+        int contentSize = shrek.getPosition().getContent().size();
+        assertEquals(1, contentSize);
+    }
+
+    @Test
+    public void CoordCanHaveToCharacters(){
+        Field field = new Field("Far far away");
+        Character shrek = new Character("Shrek");
+        Character fiona = new Character("Fiona");
+        Coord position = new Coord(2,2);
+        shrek.setPosition(position);
+        fiona.setPosition(position);
+        int contentSize = shrek.getPosition().getContent().size();
+        assertEquals(2, contentSize);
+    }
+
+    @Test
+    public void CoordCanHaveBothCharsAndThings(){
+        Field field = new Field("Far far away");
+        Character shrek = new Character("Shrek");
+        Coord position = new Coord(2,2);
+        Thing tree = new Thing("Tree", position, field);
+        shrek.setPosition(position);
+        int contentSize = position.getContent().size();
+        assertEquals(2, contentSize);
+    }
+
+    @Test
+    public void CoordCanHaveBothCharsAndThingsButNotExceedMaxContent(){
+        Field field = new Field("Far far away");
+        Character shrek = new Character("Shrek");
+        Character fiona = new Character("Fiona");
+        Coord position = new Coord(2,2);
+        Thing tree = new Thing("Tree", position, field);
+        Thing rock = new Thing("Rock", position, field);
+        shrek.setPosition(position);
+        fiona.setPosition(position);
+        int contentSize = position.getContent().size();
+        assertEquals(3, contentSize);
+    }
+
+    @Test
+    public void placingThingsOnField(){
+        Field field = new Field("Far far away");
+        Character shrek = new Character("Shrek");
+        Character fiona = new Character("Fiona");
+        Coord position = new Coord(2,2);
+        shrek.setPosition(position);
+        fiona.setPosition(position);
+        field.placeContent(position);
+        List<Coord> coordsFiled = field.getCoords().stream().filter(Coord -> Coord.getContent().size()>0).collect(Collectors.toList());
+        int coordContentSize = coordsFiled.get(0).getContent().size();
+        assertEquals(2, coordContentSize);
+    }
+
+    @Test
+    public void placingContentOnFieldFromDifPosition(){
+        Field field = new Field("Far far away");
+        Character shrek = new Character("Shrek");
+        Character fiona = new Character("Fiona");
+        Character burro = new Character("Burro");
+        shrek.setPosition(new Coord(2,2));
+        fiona.setPosition(new Coord(2,2));
+        burro.setPosition(new Coord(2,2));
+        field.placeContent(shrek.getPosition());
+        field.placeContent(fiona.getPosition());
+        field.placeContent(burro.getPosition());
+        List<Coord> coordsFiled = field.getCoords().stream().filter(Coord -> Coord.getContent().size()>0).collect(Collectors.toList());
+        int coordContentSize = coordsFiled.get(0).getContent().size();
+        assertEquals(3, coordContentSize);
+    }
+
+    @Test
+    public void cantPlaceMoreContentThanMaxContent(){
+        Field field = new Field("Far far away");
+        Character shrek = new Character("Shrek");
+        Character fiona = new Character("Fiona");
+        Character burro = new Character("Burro");
+        Character pinocho = new Character("Pinocho");
+        shrek.setField(field);
+        fiona.setField(field);
+        burro.setField(field);
+        pinocho.setField(field);
+        shrek.setPosition(new Coord(2,2));
+        fiona.setPosition(new Coord(2,2));
+        burro.setPosition(new Coord(2,2));
+        pinocho.setPosition(new Coord(2,2));
+
+        List<Coord> coordsFiled = field.getCoords().stream().filter(Coord -> Coord.getContent().size()>0).collect(Collectors.toList());
+        int coordContentSize = coordsFiled.get(0).getContent().size();
+        assertEquals(3, coordContentSize);
+    }
 
 }

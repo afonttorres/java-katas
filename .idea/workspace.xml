@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839c5b5b-97a7-4f83-b559-9795a679085c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/Author.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/library/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/library/AuthorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/library/BookTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/library/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Attack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Coord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Coord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Heal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Heal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Thing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Thing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,8 +82,8 @@
       <recent name="katas" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AuthorTest.AuthorCanSeeIfBookRented">
-    <configuration name="AuthorTest.AuthorCanSeeIfBookRented" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CharacterTest.cantPlaceMoreContentThanMaxContent">
+    <configuration name="CharacterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -96,7 +96,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;library.AuthorTest.AuthorCanSeeIfBookRented&quot;" />
+            <option value="&quot;katas.CharacterTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -106,7 +106,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BookTest.BookCanBeRented" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.cantPlaceMoreContentThanMaxContent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -119,7 +119,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;library.BookTest.BookCanBeRented&quot;" />
+            <option value="&quot;katas.CharacterTest.cantPlaceMoreContentThanMaxContent&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -129,7 +129,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BookTest.BookCantBeRentedTwice" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.placingContentOnFieldFromDifPosition" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -142,7 +142,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;library.BookTest.BookCantBeRentedTwice&quot;" />
+            <option value="&quot;katas.CharacterTest.placingContentOnFieldFromDifPosition&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -152,7 +152,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="UserTest.UserCanRentMultipleBooks" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.placingThingsOnField" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -165,7 +165,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;library.UserTest.UserCanRentMultipleBooks&quot;" />
+            <option value="&quot;katas.CharacterTest.placingThingsOnField&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -175,7 +175,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="UserTest.UserCantRentBook" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterTest.placingThingsOnFieldFromDifPosition" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -188,7 +188,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;library.UserTest.UserCantRentBook&quot;" />
+            <option value="&quot;katas.CharacterTest.placingThingsOnFieldFromDifPosition&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -200,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AuthorTest.AuthorCanSeeIfBookRented" />
-        <item itemvalue="Gradle.UserTest.UserCanRentMultipleBooks" />
-        <item itemvalue="Gradle.UserTest.UserCantRentBook" />
-        <item itemvalue="Gradle.BookTest.BookCantBeRentedTwice" />
-        <item itemvalue="Gradle.BookTest.BookCanBeRented" />
+        <item itemvalue="Gradle.CharacterTest.cantPlaceMoreContentThanMaxContent" />
+        <item itemvalue="Gradle.CharacterTest.placingContentOnFieldFromDifPosition" />
+        <item itemvalue="Gradle.CharacterTest.placingThingsOnField" />
+        <item itemvalue="Gradle.CharacterTest.placingThingsOnFieldFromDifPosition" />
+        <item itemvalue="Gradle.CharacterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +221,7 @@
       <workItem from="1654673097374" duration="22805000" />
       <workItem from="1654704757334" duration="8167000" />
       <workItem from="1654758233842" duration="32794000" />
-      <workItem from="1654845095185" duration="18539000" />
+      <workItem from="1654845095185" duration="33096000" />
     </task>
     <servers />
   </component>

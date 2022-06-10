@@ -36,10 +36,27 @@ public class Field {
 
      public boolean isCoordOnField(Coord position) {
         if(position == null) return false;
-        boolean isCoordOnField = false;
         for(Coord coord: this.fieldCoords){
-            if(coord.getY() == position.getY() && coord.getX() == position.getX()) isCoordOnField = true;
-       }return  isCoordOnField;
+            if(coord.getY() == position.getY() && coord.getX() == position.getX()) return true;
+       }return  false;
+    }
+
+
+    public void placeContent(Coord position){
+        System.out.println(position);
+        if(!isCoordOnField(position)) return;
+        for (int i = 0; i < this.fieldCoords.size(); i++){
+            if(this.fieldCoords.get(i).getX() == position.getX() && this.fieldCoords.get(i).getY() == position.getY()){
+                if(this.fieldCoords.get(i).getContent().size() >= this.fieldCoords.get(i).getMaxContent()) {
+                    System.out.println("Position "+"("+position.getX()+","+ position.getY()+")"+" is already taken.");
+                    this.castElement(position);
+                    return;
+                }
+                for(Object data: position.getContent()){
+                    this.fieldCoords.get(i).setContent(data);
+                }
+            }
+        }
     }
 
     public double calcDistance(Coord coordA, Coord coordB){
@@ -53,4 +70,27 @@ public class Field {
         double d = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1), 2));
         return Math.floor(d*100.0)/100.0;
     }
+
+    public void castElement(Coord position){
+        String simpleName = position.getContent().get(0).getClass().getCanonicalName();
+        if(simpleName != "katas.Character" && simpleName != "katas.Thing" ) return;
+        if (simpleName == "katas.Character"){
+            Character character = (Character) position.getContent().get(0);
+            removeFromField(character);
+        }
+        if(simpleName == "katas.Thing"){
+            Thing thing = (Thing) position.getContent().get(0);
+            removeFromField(thing);
+        }
+    }
+
+    public void removeFromField(Character character){
+        character.setPosition(new Coord(-1,-1));
+        System.out.println(character.getName()+" is out of field.");
+    }
+    public void removeFromField(Thing thing){
+        thing.removeFromField();
+        System.out.println(thing.getName()+" has been erased from field.");
+    }
+
 }

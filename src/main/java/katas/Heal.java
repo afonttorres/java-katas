@@ -7,7 +7,6 @@ public class Heal {
         return this.field().calcDistance(healer.getPosition(), target.getPosition());
     }
     private Field field(){
-        //if(healer.getField() != target.getField()) return;
         return healer.getField();
     }
     private boolean areAlies(){
@@ -28,6 +27,8 @@ public class Heal {
 
     public void on(Character target){
         this.target = target;
+        if(this.field() != this.target.getField()) return;
+
         if(this.healer == this.target){
             this.healer.getsHealed(this.healer);
             System.out.println(this.healer.getName()+" healed");
@@ -35,7 +36,6 @@ public class Heal {
         if(this.areAlies() && this.areOnRange() && this.target.getIsAlive()){
             this.healer.heals(this.target);
             System.out.println(this.target.getName()+" healed");
-            //System.out.println(this.distance();
 
         }else{
             System.out.println(this.target.getName()+" couldn't be healed");
@@ -45,12 +45,4 @@ public class Heal {
             System.out.println("Is target alive? "+this.target.getIsAlive());
         }
     }
-
-    public boolean getAreOnRange(){
-        return this.areOnRange();
-    }
-    public boolean getAreAlies(){
-        return this.areAlies();
-    }
-    public boolean getOutOfField(){return this.outOfField();}
 }

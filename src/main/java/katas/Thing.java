@@ -14,6 +14,8 @@ public class Thing {
         this.name = name;
         this.position = position;
         this.field = field;
+        this.position.setContent(this);
+        field.placeContent(this.position);
     }
     //GETTERS
     public int getHealth(){
@@ -33,6 +35,7 @@ public class Thing {
     }
     //SETTERS
     public void removeFromField(){
+        this.position.removeFromContent(this);
         this.position = new Coord(-1,-1);
     }
     //METHODS

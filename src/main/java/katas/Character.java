@@ -14,6 +14,9 @@ public class Character {
     private int attackPower = 50;
     private int healingPower = 50;
     private int maxRange = 2;
+    private int levelDiff = 5;
+    private double damageIncrease = 1.5;
+    private double damageReduction = .5;
     private Coord position = new Coord(0,0);
     private List<Faction> factions = new ArrayList<>();
     private Field field;
@@ -77,18 +80,19 @@ public class Character {
     public void setField(Field field){
         this.field = field;
     }
-    public void setPosition(int x, int y){
-        Coord newPosition = new Coord(x, y);
-        this.position = newPosition;
+    public void setPosition(Coord position){
         System.out.println(this.name+"'s position: "+"("+position.getX()+","+position.getY()+")");
+        this.position = position;
+        this.position.setContent(this);
+        this.field.placeContent(this.position);
     }
     private double setDamage(Character target){
         double damage = target.getAttackPower();
-        if(target.getLevel() >= (this.getLevel()+5)){
-            damage = target.getAttackPower() * 1.5;
+        if(target.getLevel() >= (this.getLevel()+this.levelDiff)){
+            damage = target.getAttackPower() * this.damageIncrease;
         }
-        if(target.getLevel() <= this.getLevel()-5){
-            damage = target.getAttackPower() * 0.5;
+        if(target.getLevel() <=( this.getLevel()-this.levelDiff)){
+            damage = target.getAttackPower() * this.damageReduction;
         }
         return  damage;
     }
@@ -101,6 +105,7 @@ public class Character {
         this.health -= damage;
         if(this.health <= damage || this.health < 0){
             this.health = 0;
+            this.removeFromFactionsAndField();
         }
     }
     public void attacks(Character target){
@@ -126,11 +131,33 @@ public class Character {
         }
         target.setHealth(targetsHealth);
     }
+    public void becomeFactionMember(Faction faction){
+        faction.addMember(self);
+    }
+
+    public void getOutOfFaction(Faction faction){
+        faction.removeMember(self);
+        this.factions.remove(faction);
+    }
     public void addFaction(Faction faction){
         this.factions.add(faction);
     }
-
     public void removeFaction(Faction faction){
         this.factions.remove(faction);
+    }
+
+    public void removeFromField(){
+        this.position.removeFromContent(this);
+        this.position = new Coord(-1,-1);
+    }
+    public void removeFromFactions(){
+        for(int i = 0; i < this.factions.size(); i++){
+            getOutOfFaction(factions.get(i));
+        }
+    }
+    //WHEN CHARACTER DIES
+    public void removeFromFactionsAndField(){
+        this.removeFromField();
+        this.removeFromFactions();
     }
 }

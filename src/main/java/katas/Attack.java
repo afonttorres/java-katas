@@ -3,9 +3,8 @@ package katas;
 public class Attack {
     private Character attacker;
     private Field field(){
-        //if(attacker.getField() != target.getField()) return;
         return attacker.getField();
-    }
+    };
     private boolean areOnRange(){
         return this.distance <= attacker.getMaxRange();
     }
@@ -18,17 +17,15 @@ public class Attack {
         return false;
     }
 
-
-
-
     public  Attack(Character attacker){
         this.attacker = attacker;
     }
     public void on(Character target){
+        if(target.getField() != this.field()) return;
         this.distance = this.field().calcDistance(attacker.getPosition(), target.getPosition());
         if(this.areOnRange() && !this.areAlies(target) && !this.outOfField()){
-            this.attacker.attacks(target);
             System.out.println(target.getName()+" attacked by "+this.attacker.getName());
+            this.attacker.attacks(target);
         }else{
             System.out.println(target.getName()+" couldn't be attacked by "+this.attacker.getName());
             System.out.println("Are alies? "+this.areAlies(target));
