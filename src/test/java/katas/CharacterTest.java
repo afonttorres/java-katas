@@ -316,7 +316,7 @@ class CharacterTest {
         fiona.setPosition(5,2);
         shrek.setField(field);
         shrek.setPosition(8,4);
-        double result = field.calcDistance(fiona, shrek);
+        double result = field.calcDistance(fiona.getPosition(), shrek.getPosition());
         assertEquals(3.6, result);
     }
 
@@ -329,8 +329,9 @@ class CharacterTest {
         shrek.setPosition(8,4);
         fiona.setField(field);
         shrek.setField(field);
-        Attack attack = new Attack(fiona, shrek);
-        boolean canAttack = attack.getAreOnRange();
+        Attack attack = new Attack(fiona);
+        attack.on(shrek);
+        boolean canAttack = shrek.getHealth() == 950;
         assertEquals(true, canAttack);
     }
 
@@ -343,8 +344,9 @@ class CharacterTest {
         shrek.setPosition(8,4);
         fiona.setField(field);
         shrek.setField(field);
-        Attack attack = new Attack(shrek, fiona);
-        boolean canAttack = attack.getAreOnRange();
+        Attack attack = new Attack(shrek);
+        attack.on(fiona);
+        boolean canAttack = fiona.getHealth() == 950;
         assertEquals(false, canAttack);
     }
 
@@ -357,8 +359,8 @@ class CharacterTest {
         shrek.setPosition(8,4);
         fiona.setField(field);
         shrek.setField(field);
-        Attack fionaAttacksShrek = new Attack(fiona, shrek);
-        fionaAttacksShrek.on();
+        Attack fionaAttacksShrek = new Attack(fiona);
+        fionaAttacksShrek.on(shrek);
         int targetHealth = shrek.getHealth();
         assertEquals(950, targetHealth);
     }
@@ -372,8 +374,8 @@ class CharacterTest {
         shrek.setPosition(8,4);
         fiona.setField(field);
         shrek.setField(field);
-        Attack shrekAttacksFiona = new Attack(shrek, fiona);
-        shrekAttacksFiona.on();
+        Attack shrekAttacksFiona = new Attack(shrek);
+        shrekAttacksFiona.on(fiona);
         int targetHealth = fiona.getHealth();
         assertEquals(1000, targetHealth);
     }
@@ -478,8 +480,9 @@ class CharacterTest {
         Field battlefield = new Field("Far far away");
         fiona.setField(battlefield);
         shrek.setField(battlefield);
-        Attack shrekAttacksFiona = new Attack(shrek, fiona);
-        boolean areAlies = shrekAttacksFiona.getAreAlies();
+        Attack shrekAttacksFiona = new Attack(shrek);
+        shrekAttacksFiona.on(fiona);
+        boolean areAlies = fiona.getHealth() == 1000;
         assertEquals(true, areAlies);
     }
 
@@ -494,8 +497,9 @@ class CharacterTest {
         Field battlefield = new Field("Far far away");
         fiona.setField(battlefield);
         shrek.setField(battlefield);
-        Attack shrekAttacksFiona = new Attack(shrek, fiona);
-        boolean areAlies = shrekAttacksFiona.getAreAlies();
+        Attack shrekAttacksFiona = new Attack(shrek);
+        shrekAttacksFiona.on(fiona);
+        boolean areAlies = fiona.getHealth() == 1000;
         assertEquals(false, areAlies);
     }
 
@@ -509,8 +513,8 @@ class CharacterTest {
         Field battlefield = new Field("Far far away");
         fiona.setField(battlefield);
         shrek.setField(battlefield);
-        Attack shrekAttacksFiona = new Attack(shrek, fiona);
-        shrekAttacksFiona.on();
+        Attack shrekAttacksFiona = new Attack(shrek);
+        shrekAttacksFiona.on(fiona);
         int fionasHealth = fiona.getHealth();
         assertEquals(1000, fionasHealth);
     }
@@ -525,8 +529,8 @@ class CharacterTest {
         Field battlefield = new Field("Far far away");
         fiona.setField(battlefield);
         shrek.setField(battlefield);
-        Attack shrekAttacksFiona = new Attack(shrek, fiona);
-        shrekAttacksFiona.on();
+        Attack shrekAttacksFiona = new Attack(shrek);
+        shrekAttacksFiona.on(fiona);
         int fionasHealth = fiona.getHealth();
         assertEquals(950, fionasHealth);
     }
@@ -543,8 +547,8 @@ class CharacterTest {
         Field battlefield = new Field("Far far away");
         fiona.setField(battlefield);
         shrek.setField(battlefield);
-        Attack shrekAttacksFiona = new Attack(shrek, fiona);
-        shrekAttacksFiona.on();
+        Attack shrekAttacksFiona = new Attack(shrek);
+        shrekAttacksFiona.on(fiona);
         int fionasHealth = fiona.getHealth();
         assertEquals(1000, fionasHealth);
     }
@@ -556,8 +560,8 @@ class CharacterTest {
         Field battlefield = new Field("Far far away");
         fiona.setField(battlefield);
         shrek.setField(battlefield);
-        Attack shrekAttacksFiona = new Attack(shrek, fiona );
-        shrekAttacksFiona.on();
+        Attack shrekAttacksFiona = new Attack(shrek );
+        shrekAttacksFiona.on(fiona);
         int fionasHealth = fiona.getHealth();
         assertEquals(950, fionasHealth);
     }
@@ -581,10 +585,10 @@ class CharacterTest {
         fiona.setField(battlefield);
         shrek.setField(battlefield);
         hadaMadrina.setField(battlefield);
-        Attack hadaMadrinaAttacksShrek = new Attack(hadaMadrina, shrek);
-        hadaMadrinaAttacksShrek.on();
-        Heal fionaHealsShrek = new Heal(fiona, shrek);
-        fionaHealsShrek.on();
+        Attack hadaMadrinaAttacksShrek = new Attack(hadaMadrina);
+        hadaMadrinaAttacksShrek.on(shrek);
+        Heal fionaHealsShrek = new Heal(fiona);
+        fionaHealsShrek.on(shrek);
         int shreksHealth = shrek.getHealth();
         assertEquals(1000, shreksHealth);
 
@@ -599,10 +603,10 @@ class CharacterTest {
         Field battlefield = new Field("Far far away");
         shrek.setField(battlefield);
         hadaMadrina.setField(battlefield);
-        Attack hadaMadrinaAttacksShrek = new Attack(hadaMadrina, shrek);
-        hadaMadrinaAttacksShrek.on();
-        Heal hadaMadrinaHealsShrek = new Heal(hadaMadrina, shrek);
-        hadaMadrinaHealsShrek.on();
+        Attack hadaMadrinaAttacksShrek = new Attack(hadaMadrina);
+        hadaMadrinaAttacksShrek.on(shrek);
+        Heal hadaMadrinaHealsShrek = new Heal(hadaMadrina);
+        hadaMadrinaHealsShrek.on(shrek);
         int shreksHealth = shrek.getHealth();
         assertEquals(950, shreksHealth);
 
@@ -615,10 +619,10 @@ class CharacterTest {
         Field battlefield = new Field("Far far away");
         shrek.setField(battlefield);
         hadaMadrina.setField(battlefield);
-        Attack hadaMadrinaAttacksShrek = new Attack(hadaMadrina, shrek);
-        hadaMadrinaAttacksShrek.on();
-        Heal shrekHealsHimself = new Heal(shrek, shrek);
-        shrekHealsHimself.on();
+        Attack hadaMadrinaAttacksShrek = new Attack(hadaMadrina);
+        hadaMadrinaAttacksShrek.on(shrek);
+        Heal shrekHealsHimself = new Heal(shrek);
+        shrekHealsHimself.on(shrek);
         int shreksHealth = shrek.getHealth();
         assertEquals(1000, shreksHealth);
     }
@@ -645,9 +649,25 @@ class CharacterTest {
         Thing tree = new Thing("Tree", new Coord(2,2), field);
         Ranged shrek = new Ranged("Shrek");
         shrek.setField(field);
-        //Attack shrekAttacksTree = new Attack(shrek, tree);
-        //shrekAttacksTree.on();
+        Attack shrekAttacksTree = new Attack(shrek);
+        shrekAttacksTree.on(tree);
         int treeHealth = tree.getHealth();
         assertEquals(950, treeHealth);
+    }
+
+    @Test
+    public void thingsCanBeDestroyed(){
+        Field field = new Field("Far far away");
+        Thing tree = new Thing("Tree", new Coord(2,2), field);
+        Ranged shrek = new Ranged("Shrek");
+        shrek.setField(field);
+        shrek.setAttackPower(1000);
+        Attack shrekAttacksTree = new Attack(shrek);
+        shrekAttacksTree.on(tree);
+        boolean treeIsDestroyed = tree.getIsDestroyed();
+        boolean treeIsntOnField = field.isCoordOnField(tree.getPosition());
+        System.out.println("("+tree.getPosition().getX()+","+tree.getPosition().getY()+")");
+        assertEquals(true, treeIsDestroyed);
+        assertEquals(false, treeIsntOnField);
     }
 }

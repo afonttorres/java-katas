@@ -4,7 +4,7 @@ public class Heal {
     private Character healer;
     private Character target;
     private double distance(){
-        return this.field().calcDistance(healer, target);
+        return this.field().calcDistance(healer.getPosition(), target.getPosition());
     }
     private Field field(){
         //if(healer.getField() != target.getField()) return;
@@ -22,12 +22,12 @@ public class Heal {
     private boolean outOfField() { return this.distance()< 0;}
 
 
-    public Heal(Character healer, Character target){
+    public Heal(Character healer){
         this.healer = healer;
-        this.target = target;
     }
 
-    public void on(){
+    public void on(Character target){
+        this.target = target;
         if(this.healer == this.target){
             this.healer.getsHealed(this.healer);
             System.out.println(this.healer.getName()+" healed");

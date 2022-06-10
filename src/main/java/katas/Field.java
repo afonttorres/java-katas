@@ -42,15 +42,13 @@ public class Field {
        }return  isCoordOnField;
     }
 
-    public double calcDistance(Character charA, Character charB){
-        Coord charAPos = charA.getPosition();
-        Coord charBPos = charB.getPosition();
+    public double calcDistance(Coord coordA, Coord coordB){
 
-        if(!isCoordOnField(charAPos) || !isCoordOnField(charBPos)) return -1;
-        int x2 = charBPos.getX();
-        int x1 = charAPos.getX();
-        int y2 = charBPos.getY();
-        int y1 = charAPos.getY();
+        if(!isCoordOnField(coordA) || !isCoordOnField(coordB)) return -1;
+        int x2 = coordB.getX();
+        int x1 = coordA.getX();
+        int y2 = coordB.getY();
+        int y1 = coordA.getY();
 
         double d = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1), 2));
         return Math.floor(d*100.0)/100.0;

@@ -31,10 +31,16 @@ public class Thing {
     public Field getField(){
         return this.field;
     }
-
+    //SETTERS
+    public void eraseFromField(){
+        this.position = new Coord(-1,-1);
+    }
     //METHODS
-    public void getHurt(Character attacker){
+    public void getsHurt(Character attacker){
         this.health -= attacker.getAttackPower();
-        if(this.health <= 0) this.health = 0;
+        if(this.health <= 0) {
+            this.health = 0;
+            eraseFromField();
+        }
     }
 }

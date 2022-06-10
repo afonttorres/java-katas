@@ -2,49 +2,45 @@ package katas;
 
 public class Attack {
     private Character attacker;
-    private Character target;
-    private double distance(){
-        return this.field().calcDistance(attacker, target);
-    }
     private Field field(){
         //if(attacker.getField() != target.getField()) return;
         return attacker.getField();
     }
-    private boolean areAlies(){
+    private boolean areOnRange(){
+        return this.distance <= attacker.getMaxRange();
+    }
+    private boolean outOfField() { return this.distance< 0;}
+    private double distance;
+    private boolean areAlies(Character target){
         for(Faction faction : attacker.getFactions()){
             if(faction.areAllies(attacker, target)) return true;
         }
         return false;
     }
-    private boolean areOnRange(){
-        return this.distance() <= attacker.getMaxRange();
-    }
-    private boolean outOfField() { return this.distance()< 0;}
 
 
 
-    public  Attack(Character attacker, Character target){
+
+    public  Attack(Character attacker){
         this.attacker = attacker;
-        this.target = target;
     }
-    public void on(){
-
-        if(this.areOnRange() && !this.areAlies()){
-            this.attacker.attacks(this.target);
-            System.out.println(this.target.getName()+" attacked by "+this.attacker.getName());
+    public void on(Character target){
+        this.distance = this.field().calcDistance(attacker.getPosition(), target.getPosition());
+        if(this.areOnRange() && !this.areAlies(target) && !this.outOfField()){
+            this.attacker.attacks(target);
+            System.out.println(target.getName()+" attacked by "+this.attacker.getName());
         }else{
-            System.out.println(this.target.getName()+" couldn't be attacked by "+this.attacker.getName());
-            System.out.println("Are alies? "+this.areAlies());
+            System.out.println(target.getName()+" couldn't be attacked by "+this.attacker.getName());
+            System.out.println("Are alies? "+this.areAlies(target));
             System.out.println("Are on range? "+this.areOnRange());
             System.out.println("Some of them isn't inside field? "+this.outOfField());
         }
     }
 
-    public boolean getAreOnRange(){
-        return this.areOnRange();
+    public void on(Thing target){
+        this.distance = this.field().calcDistance(attacker.getPosition(), target.getPosition());
+        if(this.areOnRange() && !this.outOfField()){
+            target.getsHurt(this.attacker);
+        }
     }
-    public boolean getAreAlies(){
-        return this.areAlies();
-    }
-    public boolean getOutOfField(){return this.outOfField();}
 }
