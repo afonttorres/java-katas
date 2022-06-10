@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Character {
+    //VARS
     private int maxHealth = 1000;
-    private int health = 1000;
+    private int health = maxHealth;
     private  int level = 1;
     private boolean isAlive(){
         return this.health >= 1;
     }
     private int attackPower = 50;
     private int healingPower = 50;
-
     private int maxRange = 2;
     private Coord position = new Coord(0,0);
     private List<Faction> factions = new ArrayList<>();
@@ -21,11 +21,10 @@ public class Character {
     public Character(String name){
         this.name = name;
     }
-
     public Character self = this;
-    public int getMaxHealth(){
-        return this.maxHealth;
-    }
+
+    //GETTERS
+    public int getMaxHealth(){return this.maxHealth;}
     public int getHealth(){
         return this.health;
     }
@@ -44,14 +43,21 @@ public class Character {
     public int getHealingPower(){
         return this.healingPower;
     }
-    public Coord getPosition(){
-        return this.position;
-    }
-
     public int getMaxRange(){
         return this.maxRange;
     }
+    public Field getField(){
+        return this.field;
+    }
+    public Coord getPosition(){
+        return this.position;
+    }
+    public List<Faction> getFactions(){
+        //factions.forEach(faction -> System.out.println(faction.getName()));
+        return this.factions;
+    }
 
+    //SETTERS
     public void setMaxRange(int val){
         this.maxRange = val;
     }
@@ -68,7 +74,14 @@ public class Character {
     public void setHealingPower(int val){
         this.healingPower = val;
     }
-
+    public void setField(Field field){
+        this.field = field;
+    }
+    public void setPosition(int x, int y){
+        Coord newPosition = new Coord(x, y);
+        this.position = newPosition;
+        System.out.println(this.name+"'s position: "+"("+position.getX()+","+position.getY()+")");
+    }
     private double setDamage(Character target){
         double damage = target.getAttackPower();
         if(target.getLevel() >= (this.getLevel()+5)){
@@ -80,7 +93,8 @@ public class Character {
         return  damage;
     }
 
-    public  void getsHurt(Character target){
+    //METHODS
+    private void getsHurt(Character target){
         if(target == self) return;
         double damage = setDamage(target);
         System.out.println("Attack power went from "+target.getAttackPower()+" to: " +damage+".");
@@ -89,12 +103,10 @@ public class Character {
             this.health = 0;
         }
     }
-
     public void attacks(Character target){
         if(target == self) return;
         target.getsHurt(self);
     }
-
     public void getsHealed(Character target){
         if(target != self) return;
         if(this.health <= 0) return;
@@ -102,10 +114,7 @@ public class Character {
         if(this.health > this.maxHealth){
             this.health = this.maxHealth;
         }
-
-
     }
-
     public void heals(Character target){
         if(target == self) return;
         if(target.getHealth() <= 0) return;
@@ -116,23 +125,7 @@ public class Character {
             targetsHealth = target.getMaxHealth();
         }
         target.setHealth(targetsHealth);
-
     }
-
-    public void setPosition(int x, int y){
-        Coord newPosition = new Coord(x, y);
-        this.position = newPosition;
-        System.out.println(this.name+"'s position: "+"("+position.getX()+","+position.getY()+")");
-    }
-
-    public void setField(Field field){
-        this.field = field;
-    }
-
-    public Field getField(){
-        return this.field;
-    }
-
     public void addFaction(Faction faction){
         this.factions.add(faction);
     }
@@ -140,11 +133,4 @@ public class Character {
     public void removeFaction(Faction faction){
         this.factions.remove(faction);
     }
-
-    public List<Faction> getFactions(){
-        //factions.forEach(faction -> System.out.println(faction.getName()));
-        return this.factions;
-    }
-
-
 }

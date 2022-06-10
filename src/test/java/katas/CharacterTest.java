@@ -149,7 +149,7 @@ class CharacterTest {
     public void characterHurtsCharacterIT2(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
-        shrek.getsHurt(fiona);
+        fiona.attacks(shrek);
         int result = shrek.getHealth();
         assertEquals( 950, result);
     }
@@ -158,7 +158,7 @@ class CharacterTest {
     @Test
     public void characterCantHurtHimselfIT2(){
         Character shrek = new Character("Shrek");
-        shrek.getsHurt(shrek);
+        shrek.attacks(shrek);
         int result = shrek.getHealth();
         assertEquals( 1000, result);
     }
@@ -168,7 +168,7 @@ class CharacterTest {
     public void characterCantHealCharacterIT2(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
-        shrek.getsHurt(fiona);
+        fiona.attacks(shrek);
         shrek.getsHealed(fiona);
         int result = shrek.getHealth();
         assertEquals( 950, result);
@@ -179,7 +179,7 @@ class CharacterTest {
     public void characterCanHealHimselfIT2(){
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
-        shrek.getsHurt(fiona);
+        fiona.attacks(shrek);
         shrek.getsHealed(shrek);
         int result = shrek.getHealth();
         assertEquals( 1000, result);
@@ -191,7 +191,7 @@ class CharacterTest {
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         fiona.setLevel(6);//mec
-        shrek.getsHurt(fiona);
+        fiona.attacks(shrek);
         int result = shrek.getHealth();
         assertEquals( 925, result);
     }
@@ -202,7 +202,7 @@ class CharacterTest {
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         shrek.setLevel(6);//mec
-        shrek.getsHurt(fiona);
+        fiona.attacks(shrek);
         int result = shrek.getHealth();
         assertEquals( 975, result);
     }
@@ -623,74 +623,31 @@ class CharacterTest {
         assertEquals(1000, shreksHealth);
     }
 
-    //GAMING DEMO - EVERY POSSIBLE SCENARIO//
     @Test
-    public void gamingDemo(){
-        //Creating battlefield
-        Field field = new Field("island of Paradise");
-        //Creating factions
-        Faction surveyCorps = new Faction("Survey Corps");
-        Faction titans = new Faction("Titans");
-        //HUMANS
-        //Creating Survey Corps Integers
-        Ranged eren = new Ranged("Eren");
-        Ranged mikasa = new Ranged("Mikasa");
-        Ranged armin = new Ranged("Armin");
-        Ranged levi = new Ranged("Levi");
-        //Setting levels
-        eren.setLevel(10);
-        armin.setLevel(6);
-        mikasa.setLevel(10);
-        levi.setLevel(10);
-        //Setting position
-        eren.setPosition(2,4);
-        armin.setPosition(2,2);
-        mikasa.setPosition(3,4);
-        levi.setPosition(8,6);
-        //Adding Integers to Survey Coprs faction
-        List<Ranged> expolorersList = List.of(eren, mikasa, armin, levi);
-        expolorersList.forEach(Ranged-> {surveyCorps.addMember(Ranged); Ranged.setField(field); });
+    public void thingsCanBeCreated(){
+        Field field = new Field("Far far away");
+        Thing tree = new Thing("Tree", new Coord(2,2), field);
+        String name = tree.getName();
+        int health = tree.getHealth();
+        boolean status = tree.getIsDestroyed();
+        String position = "("+tree.getPosition().getX()+","+tree.getPosition().getY()+")";
+        String fieldName = tree.getField().getName();
+        assertEquals("Tree", name);
+        assertEquals(1000, health);
+        assertEquals(false, status);
+        assertEquals("(2,2)", position);
+        assertEquals("Far far away", fieldName);
+    }
 
-        //TITANS
-        //Creating titans
-        Melee titan1 = new Melee("Titan 1");
-        Melee titan2 = new Melee("Titan 2");
-        Melee titan3 = new Melee("Titan 3");
-        Melee titan4 = new Melee("Titan 4");
-        //Setting levels
-        titan2.setLevel(3);
-        titan3.setLevel(6);
-        titan4.setLevel(10);
-        //Setting position
-        titan1.setPosition(1,2);
-        titan2.setPosition(3,5);
-        titan3.setPosition(2,3);
-        titan4.setPosition(8,20); //out of battlefield
-        //Adding titans to faction
-        List<Melee> titansList = List.of(titan1, titan2, titan3, titan4);
-        titansList.forEach(Melee-> {titans.addMember(Melee); Melee.setField(field);});
-
-        //Titan4 attemps to attack Levi but can't bc is out of field
-        Attack titan4AttacksLevi = new Attack(titan4, levi);
-        titan4AttacksLevi.on();
-
-        //Eren attakcs titan1 and drops him 75 health points
-        Attack erenAttacksT1 = new Attack(eren, titan1);
-        erenAttacksT1.on();
-
-        //Titan1 can't attack eren back bc he's out of range
-        Attack t1AttacksEren = new Attack(titan1,eren);
-        t1AttacksEren.on();
-
-        //Mikasa kills titan1
-        Attack mikasaKillsT1 = new Attack(mikasa, titan1);
-        for(int i = 1; i <= 15; i++){
-            mikasaKillsT1.on();
-        }
-
-        //Titan3 attemps to heal titan1 but can't bc he's dead
-        Heal t3Healst1 = new Heal(titan3, titan1);
-        t3Healst1.on();
-
+    @Test
+    public void thingsCanBeHurted(){
+        Field field = new Field("Far far away");
+        Thing tree = new Thing("Tree", new Coord(2,2), field);
+        Ranged shrek = new Ranged("Shrek");
+        shrek.setField(field);
+        //Attack shrekAttacksTree = new Attack(shrek, tree);
+        //shrekAttacksTree.on();
+        int treeHealth = tree.getHealth();
+        assertEquals(950, treeHealth);
     }
 }
