@@ -14,28 +14,43 @@ class PetTest {
         assertEquals("Meow-meow", sound);
     }
     @Test
-    public void PetSings(){
+    public void CatSings(){
         Cat cat = new Cat("Tin");
         String sound = cat.sing();
-        assertEquals("The cat Tin sings: Meow-meow", sound);
+        assertEquals("Meow-meow", sound);
     }
     @Test
-    public void PetDoesntSing(){
+    public void CatDoesntSing(){
         Cat cat = new  Cat("Tin");
         String sound = cat.stopSinging();
-        assertEquals("The cat Tin doesn't want to sing.", sound);
+        assertEquals("", sound);
     }
     @Test
-    public void PetSingsFromPetition(){
+    public void CatSingsMsg(){
         Cat cat = new  Cat("Tin");
-        String song = cat.aksPetToDo("sing");
-        assertEquals("The cat Tin sings: Meow-meow", song);
+        cat.sing();
+        String msg = cat.isSinging();
+        assertEquals("The cat Tin sings: Meow-meow", msg);
     }
     @Test
-    public void PetStopSingingFromPetition(){
+    public void CatStopSingingMsg(){
         Cat cat = new  Cat("Tin");
-        String song = cat.aksPetToDo("stop");
-        assertEquals("The cat Tin doesn't want to sing.", song);
+        cat.stopSinging();
+        String msg = cat.isSinging();
+        assertEquals("The cat Tin doesn't want to sing.", msg);
     }
-
+    @Test
+    public void DogSingsMsg(){
+        Dog dog = new  Dog("Sira");
+        dog.sing();
+        String msg = dog.isSinging();
+        assertEquals("The dog Sira sings: Boop-boop", msg);
+    }
+    @Test
+    public void DogStopSingingMsg(){
+        Dog dog = new  Dog("Sira");
+        dog.stopSinging();
+        String msg = dog.isSinging();
+        assertEquals("The dog Sira doesn't want to sing.", msg);
+    }
 }

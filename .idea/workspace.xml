@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839c5b5b-97a7-4f83-b559-9795a679085c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Callable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Human.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Pet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/SCallable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dieBremerStadtmusikanten/PetTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Attack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Coord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Coord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/katas/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Callable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/SCallable.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -228,7 +222,7 @@
       <workItem from="1654704757334" duration="8167000" />
       <workItem from="1654758233842" duration="32794000" />
       <workItem from="1654845095185" duration="36998000" />
-      <workItem from="1655103925536" duration="20049000" />
+      <workItem from="1655103925536" duration="21712000" />
     </task>
     <servers />
   </component>

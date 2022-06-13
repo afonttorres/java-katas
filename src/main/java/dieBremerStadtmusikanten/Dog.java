@@ -1,29 +1,37 @@
 package dieBremerStadtmusikanten;
 
-public class Dog extends Pet{
+public class Dog implements Pet{
+    private String name;
     private String sound = "Boop-boop";
+    private boolean isSinging;
     public Dog(String name) {
-        super(name);
+        this.name = name;
     }
 
     //GETTER
+    public String getName(){
+        return this.name;
+    }
     public String getSound(){
         return this.sound;
     }
     @Override
     public String sing() {
-        return "The cat "+this.getName() +" sings: "+this.sound;
+        this.isSinging = true;
+        return this.sound;
     }
 
     @Override
     public String stopSinging() {
-        return "The cat "+this.getName() +" doesn't want to sing.";
+        this.isSinging = false;
+        return "";
     }
 
     @Override
-    public String aksPetToDo(String func) {
-        if(func == "sing") return String.valueOf(this.sing());
-        if(func == "stop") return String.valueOf(this.stopSinging()) ;
-        return func;
+    public String isSinging(){
+        String msg = "The dog "+this.name;
+        if(this.isSinging)  msg+=" sings: "+this.sound;
+        if(!this.isSinging) msg+=" doesn't want to sing.";
+        return msg;
     }
 }
