@@ -22,6 +22,7 @@ public class Attack {
     }
     public void on(Character target){
         if(target.getField() != this.field()) return;
+
         this.distance = this.field().calcDistance(attacker.getPosition(), target.getPosition());
         if(this.areOnRange() && !this.areAlies(target) && !this.outOfField()){
             System.out.println(target.getName()+" attacked by "+this.attacker.getName());

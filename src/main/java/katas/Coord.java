@@ -32,7 +32,7 @@ public class Coord {
     public List<Object> getContent(){return this.content;}
 
     public void setContent(Object o){
-        if (this.content.size()>=maxContent) return;
+        //if (this.content.size()>=maxContent) return;
         if(this.content.contains(o)) return;
         this.content.add(o);
     }

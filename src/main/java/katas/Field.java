@@ -43,6 +43,7 @@ public class Field {
     }
 
     public double calcDistance(Coord coordA, Coord coordB){
+        //Que busqui qui són, en quina posició estan i després calculi la distància.
         if(!isCoordOnField(coordA) || !isCoordOnField(coordB)) return -1;
         int x2 = coordB.getX();
         int x1 = coordA.getX();
@@ -57,13 +58,14 @@ public class Field {
         if(!isCoordOnField(position)) return;
         for (int i = 0; i < this.fieldCoords.size(); i++){
             if(this.fieldCoords.get(i).getX() == position.getX() && this.fieldCoords.get(i).getY() == position.getY()){
-                if(this.fieldCoords.get(i).getContent().size() >= this.fieldCoords.get(i).getMaxContent()) {
-                    System.out.println("Position "+"("+position.getX()+","+ position.getY()+")"+" is already taken.");
-                    this.castElement(position);
-                    return;
-                }
                 for(Object data: position.getContent()){
                     this.fieldCoords.get(i).setContent(data);
+                }
+                if(this.fieldCoords.get(i).getContent().size() > this.fieldCoords.get(i).getMaxContent()) {
+                    System.out.println("Position "+"("+position.getX()+","+ position.getY()+")"+" is already taken.");
+                    this.castElement(position);
+                    this.fieldCoords.get(i).getContent().remove(this.fieldCoords.get(i).getContent().size()-1);
+                    return;
                 }
             }
         }
@@ -71,19 +73,20 @@ public class Field {
 
 
     public void castElement(Coord position){
-        String simpleName = position.getContent().get(0).getClass().getCanonicalName();
+        String simpleName = position.getContent().get(position.getContent().size()-1).getClass().getCanonicalName();
+
         if (simpleName == "katas.Character"){
-            Character character = (Character) position.getContent().get(0);
+            Character character = (Character) position.getContent().get(position.getContent().size()-1);
             removeFromField(character);
         }
         if(simpleName == "katas.Thing"){
-            Thing thing = (Thing) position.getContent().get(0);
+            Thing thing = (Thing) position.getContent().get(position.getContent().size()-1);
             removeFromField(thing);
         }
     }
 
     public void removeFromField(Character character){
-        character.setPosition(new Coord(-1,-1));
+        character.removeFromField();
         System.out.println(character.getName()+" is out of field.");
     }
     public void removeFromField(Thing thing){
@@ -93,7 +96,6 @@ public class Field {
 
     public List<Object> getCoordContent(Coord position){
         Coord coordFound = this.fieldCoords.stream().filter(Coord -> Coord.getX() == position.getX() && Coord.getY() == position.getY()).collect(Collectors.toList()).get(0);
-        System.out.println(coordFound.getContent());
         return coordFound.getContent();
     }
 
@@ -106,8 +108,6 @@ public class Field {
                 Coord.getContent().forEach(Object -> coordsContent.add(Object));
             }
         });
-        System.out.println(coordsWithContent);
-        System.out.println(coordsContent);
         return coordsContent;
     }
 

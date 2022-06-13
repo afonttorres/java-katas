@@ -3,7 +3,6 @@ package katas;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -167,9 +166,11 @@ class CharacterTest {
     public void FieldDoesntContainCharPosition(){
         Ranged fiona = new Ranged("Fiona");
         Field field = new Field("Far far away");
-        fiona.setPosition(new Coord(2,15));
         fiona.setField(field);
-        boolean isCharInField = field.isCoordOnField(fiona.getPosition());
+        fiona.setPosition(new Coord(2,15));
+
+        boolean isCharInField = field.isCoordOnField(new Coord(2,15));
+
         assertEquals(false,isCharInField );
     }
 
@@ -191,10 +192,10 @@ class CharacterTest {
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
         Field field = new Field("Far far away");
-        fiona.setPosition(new Coord(5,2));
-        shrek.setPosition(new Coord(8,4));
         fiona.setField(field);
         shrek.setField(field);
+        fiona.setPosition(new Coord(5,2));
+        shrek.setPosition(new Coord(8,4));
         Attack attack = new Attack(fiona);
         attack.on(shrek);
         boolean canAttack = shrek.getHealth() == 950;
@@ -206,10 +207,12 @@ class CharacterTest {
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
         Field field = new Field("Far far away");
-        fiona.setPosition(new Coord(5,2));
-        shrek.setPosition(new Coord(8,4));
         fiona.setField(field);
         shrek.setField(field);
+        fiona.setPosition(new Coord(5,2));
+        shrek.setPosition(new Coord(8,4));
+
+
         Attack attack = new Attack(shrek);
         attack.on(fiona);
         boolean canAttack = fiona.getHealth() == 950;
@@ -221,10 +224,12 @@ class CharacterTest {
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
         Field field = new Field("Far far away");
-        fiona.setPosition(new Coord(5,2));
-        shrek.setPosition(new Coord(8,4));
         fiona.setField(field);
         shrek.setField(field);
+
+        fiona.setPosition(new Coord(5,2));
+        shrek.setPosition(new Coord(8,4));
+
         Attack fionaAttacksShrek = new Attack(fiona);
         fionaAttacksShrek.on(shrek);
         int targetHealth = shrek.getHealth();
@@ -236,10 +241,10 @@ class CharacterTest {
         Ranged fiona = new Ranged("Fiona");
         Melee shrek = new Melee("Shrek");
         Field field = new Field("Far far away");
-        fiona.setPosition(new Coord(5,2));
-        shrek.setPosition(new Coord(8,4));
         fiona.setField(field);
         shrek.setField(field);
+        fiona.setPosition(new Coord(5,2));
+        shrek.setPosition(new Coord(8,4));
         Attack shrekAttacksFiona = new Attack(shrek);
         shrekAttacksFiona.on(fiona);
         int targetHealth = fiona.getHealth();
@@ -600,7 +605,8 @@ class CharacterTest {
         Thing tree2 = new Thing("Tree2", position, field);
         Thing rock = new Thing("Rock1", position, field);
         Thing rock2 = new Thing("Rock2", position, field);
-        int contentSize = tree1.getPosition().getContent().size();
+
+        int contentSize = field.getCoordContent(position).size();
         assertEquals(3, contentSize);
     }
 
@@ -610,7 +616,7 @@ class CharacterTest {
         Coord position = new Coord(2,2);
         Thing tree1 = new Thing("Tree1", position, field);
         position.setContent(tree1);
-        int contentSize = tree1.getPosition().getContent().size();
+        int contentSize = field.getCoordContent( new Coord(2,2)).size();
         assertEquals(1, contentSize);
     }
 
@@ -618,8 +624,9 @@ class CharacterTest {
     public void CoordHasCharacter(){
         Field field = new Field("Far far away");
         Character shrek = new Character("Shrek");
+        shrek.setField(field);
         shrek.setPosition(new Coord(2,2));
-        int contentSize = shrek.getPosition().getContent().size();
+        int contentSize = field.getCoordContent(new Coord(2,2)).size();
         assertEquals(1, contentSize);
     }
 
@@ -629,9 +636,11 @@ class CharacterTest {
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         Coord position = new Coord(2,2);
+        shrek.setField(field);
+        fiona.setField(field);
         shrek.setPosition(position);
         fiona.setPosition(position);
-        int contentSize = shrek.getPosition().getContent().size();
+        int contentSize = field.getCoordContent(position).size();
         assertEquals(2, contentSize);
     }
 
@@ -641,8 +650,9 @@ class CharacterTest {
         Character shrek = new Character("Shrek");
         Coord position = new Coord(2,2);
         Thing tree = new Thing("Tree", position, field);
+        shrek.setField(field);
         shrek.setPosition(position);
-        int contentSize = position.getContent().size();
+        int contentSize = field.getCoordContent(position).size();
         assertEquals(2, contentSize);
     }
 
@@ -651,12 +661,18 @@ class CharacterTest {
         Field field = new Field("Far far away");
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
+        shrek.setField(field);
+        fiona.setField(field);
+
         Coord position = new Coord(2,2);
         Thing tree = new Thing("Tree", position, field);
         Thing rock = new Thing("Rock", position, field);
+
         shrek.setPosition(position);
         fiona.setPosition(position);
+
         int contentSize = position.getContent().size();
+        System.out.println(contentSize);
         assertEquals(3, contentSize);
     }
 
@@ -664,13 +680,13 @@ class CharacterTest {
     public void placingThingsOnField(){
         Field field = new Field("Far far away");
         Character shrek = new Character("Shrek");
+        shrek.setField(field);
         Character fiona = new Character("Fiona");
+        fiona.setField(field);
         Coord position = new Coord(2,2);
         shrek.setPosition(position);
         fiona.setPosition(position);
-        field.placeContent(position);
-        List<Coord> coordsFiled = field.getCoords().stream().filter(Coord -> Coord.getContent().size()>0).collect(Collectors.toList());
-        int coordContentSize = coordsFiled.get(0).getContent().size();
+        int coordContentSize = field.getCoordContent(position).size();
         assertEquals(2, coordContentSize);
     }
 
@@ -680,14 +696,13 @@ class CharacterTest {
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
         Character burro = new Character("Burro");
+        shrek.setField(field);
+        fiona.setField(field);
+        burro.setField(field);
         shrek.setPosition(new Coord(2,2));
         fiona.setPosition(new Coord(2,2));
         burro.setPosition(new Coord(2,2));
-        field.placeContent(shrek.getPosition());
-        field.placeContent(fiona.getPosition());
-        field.placeContent(burro.getPosition());
-        List<Coord> coordsFiled = field.getCoords().stream().filter(Coord -> Coord.getContent().size()>0).collect(Collectors.toList());
-        int coordContentSize = coordsFiled.get(0).getContent().size();
+        int coordContentSize = field.getCoordContent(new Coord(2,2)).size();
         assertEquals(3, coordContentSize);
     }
 
@@ -707,8 +722,7 @@ class CharacterTest {
         burro.setPosition(new Coord(2,2));
         pinocho.setPosition(new Coord(2,2));
 
-        List<Coord> coordsFiled = field.getCoords().stream().filter(Coord -> Coord.getContent().size()>0).collect(Collectors.toList());
-        int coordContentSize = coordsFiled.get(0).getContent().size();
+        int coordContentSize = field.getCoordContent(new Coord(2,2)).size();
         assertEquals(3, coordContentSize);
     }
 
@@ -722,14 +736,13 @@ class CharacterTest {
         fiona.setField(field);
         shrek.setPosition(new Coord(2,2));
         fiona.setPosition(new Coord(2,2));
-        List<Coord> coordsFiled = field.getCoords().stream().filter(Coord -> Coord.getContent().size()>0).collect(Collectors.toList());
-        int coordContentSize = coordsFiled.get(0).getContent().size();
-        System.out.println(tree.getPosition().getContent());
+
+        int coordContentSize = field.getCoordContent(new Coord(2,2)).size();
         assertEquals(3, coordContentSize);
     }
 
     @Test
-    public void getCoordContent(){
+    public void getFieldContent(){
         Field field = new Field("Far far away");
         Character shrek = new Character("Shrek");
         Character fiona = new Character("Fiona");
@@ -739,8 +752,12 @@ class CharacterTest {
         fiona.setField(field);
         shrek.setPosition(new Coord(2,2));
         fiona.setPosition(new Coord(2,2));
-        field.getCoordContent(new Coord(2,2));
-        field.getFieldContent();
+        int fieldContent = field.getFieldContent().size();
+        int c22Content = field.getCoordContent(new Coord(2,2)).size();
+        int c33Content = field.getCoordContent(new Coord(3,3)).size();
+        assertEquals(4, fieldContent);
+        assertEquals(3, c22Content);
+        assertEquals(1, c33Content);
     }
 
 }
