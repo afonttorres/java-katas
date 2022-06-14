@@ -17,13 +17,14 @@ public class Cat implements Singer {
     //METHODS
     @Override
     public String sing() {
-        if(isSick) {return "";}
+        if(isSick) return "";
         msg+=" sings: "+this.sound;
         return this.sound;
     }
 
     @Override
     public String stopSinging() {
+        if(isSick) return "";
         this.msg+=" doesn't want to sing.";
         return "";
     }
