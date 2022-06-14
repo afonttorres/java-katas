@@ -10,7 +10,9 @@ public class ComicCharacter implements Singer {
         this.name = name;
         this.msg = "The comic character "+this.name;
     }
-
+    public String getName(){
+        return this.name;
+    }
     public void setSound(String sound){
         this.sound = sound;
     }

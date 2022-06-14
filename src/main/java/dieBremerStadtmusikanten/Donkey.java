@@ -14,9 +14,6 @@ public class Donkey implements Singer {
     public String getName(){
         return this.name;
     }
-    public String getSound(){
-        return this.sound;
-    }
     @Override
     public String sing() {
         if(isSick) {

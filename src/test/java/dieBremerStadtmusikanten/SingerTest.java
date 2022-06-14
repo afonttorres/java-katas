@@ -11,7 +11,7 @@ class SingerTest {
     public void PetHasInitValues(){
         Cat cat = new Cat("Tin");
         String name = cat.getName();
-        String sound = cat.getSound();
+        String sound = cat.sing();
         assertEquals("Tin",name);
         assertEquals("meow-meow", sound);
     }
