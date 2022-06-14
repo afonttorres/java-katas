@@ -1,11 +1,13 @@
 package dieBremerStadtmusikanten;
 
-public class Cat implements Pet{
+public class Cat implements Singer {
     private String name;
     private String sound = "meow-meow";
-    private boolean isSinging;
+    private boolean isSick = false;
+    private String msg;
     public Cat(String name) {
         this.name = name;
+        this.msg = "The cat "+this.name;
     }
 
     //GETTER
@@ -17,20 +19,27 @@ public class Cat implements Pet{
     }
     @Override
     public String sing() {
-        this.isSinging = true;
+        if(isSick) {
+            this.msg+=" can't sing bc is sick.";
+            return "";
+        }
+        msg+=" sings: "+this.sound;
         return this.sound;
     }
+
     @Override
     public String stopSinging() {
-        this.isSinging = false;
+        this.msg+=" doesn't want to sing.";
         return "";
     }
+
     @Override
-    public String isSinging(){
-        String msg = "The cat "+this.name;
-        if(this.isSinging)  msg+=" sings: "+this.sound;
-        if(!this.isSinging) msg+=" doesn't want to sing.";
+    public String isSinging() {
         return msg;
+    }
+    @Override
+    public void getSick(){
+        this.isSick = true;
     }
 
 }

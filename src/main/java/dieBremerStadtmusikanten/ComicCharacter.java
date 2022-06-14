@@ -1,22 +1,20 @@
 package dieBremerStadtmusikanten;
 
-public class Donkey implements Singer {
+public class ComicCharacter implements Singer {
     private String name;
-    private String sound = "eeeeh-aaaah";
+    private String sound = "lalala";
     private boolean isSick = false;
     private String msg;
-    public Donkey(String name) {
+
+    public ComicCharacter(String name){
         this.name = name;
-        this.msg = "The donkey "+this.name;
+        this.msg = "The comic character "+this.name;
     }
 
-    //GETTER
-    public String getName(){
-        return this.name;
+    public void setSound(String sound){
+        this.sound = sound;
     }
-    public String getSound(){
-        return this.sound;
-    }
+
     @Override
     public String sing() {
         if(isSick) {

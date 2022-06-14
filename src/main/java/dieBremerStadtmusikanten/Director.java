@@ -5,8 +5,8 @@ import java.util.Set;
 
 public class Director {
     private String name;
-    Set<Pet> chorus = new HashSet<>();
-    public Director(String name, Set<Pet> chorus){
+    Set<Singer> chorus = new HashSet<>();
+    public Director(String name, Set<Singer> chorus){
         this.name = name;
         this.chorus = chorus;
     }
@@ -15,7 +15,7 @@ public class Director {
 
     public String startSing(){
         String song = "";
-        for (Pet pet:this.chorus){
+        for (Singer pet:this.chorus){
             song+=pet.sing()+" ";
         }
         System.out.println(song);
@@ -24,7 +24,7 @@ public class Director {
 
     public String stopSing(){
         String song = "";
-        for (Pet pet:this.chorus){
+        for (Singer pet:this.chorus){
             song+=pet.stopSinging()+" ";
         }
         System.out.println(song);

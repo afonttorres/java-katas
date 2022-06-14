@@ -6,7 +6,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PetTest {
+class SingerTest {
     @Test
     public void PetHasInitValues(){
         Cat cat = new Cat("Tin");
@@ -75,19 +75,57 @@ class PetTest {
         Cat cat = new  Cat("Tin");
         Dog dog = new  Dog("Sira");
         Donkey donkey = new Donkey("Burro");
-        Set<Pet> chorus = Set.of(cat, dog, donkey);
+        Set<Singer> chorus = Set.of(cat, dog, donkey);
         Director director = new Director("Director", chorus);
         String song = director.startSing();
-        assertEquals("boop-boop meow-meow eeeeh-aaaah", song);
+        assertEquals(32, song.length());
     }
     @Test
     public void DirectorMakesPetsStopSinging(){
         Cat cat = new  Cat("Tin");
         Dog dog = new  Dog("Sira");
         Donkey donkey = new Donkey("Burro");
-        Set<Pet> chorus = Set.of(cat, dog, donkey);
+        Set<Singer> chorus = Set.of(cat, dog, donkey);
         Director director = new Director("Director", chorus);
         String song = director.stopSing();
         assertEquals("   ", song);
+    }
+    @Test
+    public void ComicCharacterSings(){
+        ComicCharacter character = new ComicCharacter("Dondald Duck");
+        character.sing();
+        String msg = character.isSinging();
+        assertEquals("The comic character Dondald Duck sings: lalala", msg);
+    }
+
+    @Test
+    public void ComicCharacterStopSinging(){
+        ComicCharacter character = new ComicCharacter("Dondald Duck");
+        character.stopSinging();
+        String msg = character.isSinging();
+        assertEquals("The comic character Dondald Duck doesn't want to sing.", msg);
+    }
+
+    @Test
+    public void DirectorMakesThemSing(){
+        Cat cat = new  Cat("Tin");
+        Dog dog = new  Dog("Sira");
+        Donkey donkey = new Donkey("Burro");
+        ComicCharacter donald = new ComicCharacter("Dondald Duck");
+        donald.setSound("quack-quack");
+        ComicCharacter minnie = new ComicCharacter("Minnie Mouse");
+        minnie.setSound("quick-quick");
+        Set<Singer> chorus = Set.of(cat, dog, donkey, donald, minnie);
+        Director director = new Director("Director", chorus);
+        String song = director.startSing();
+        assertEquals(56,song.length());
+    }
+    @Test
+    public void DonkeyCantSingBcIsSick(){
+        Donkey donkey = new Donkey("Burro");
+        donkey.getSick();
+        donkey.sing();
+        String msg = donkey.isSinging();
+        assertEquals("The donkey Burro can't sing bc is sick.",msg);
     }
 }
