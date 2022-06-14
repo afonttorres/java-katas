@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839c5b5b-97a7-4f83-b559-9795a679085c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/ComicCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Cat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Director.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/ComicCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/ComicCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Dog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Donkey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Donkey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Singer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dieBremerStadtmusikanten/PetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dieBremerStadtmusikanten/SingerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dieBremerStadtmusikanten/SingerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dieBremerStadtmusikanten/SingerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,30 +84,7 @@
       <recent name="Library" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.SingerTest.DonkeyCantSingBcIsSick">
-    <configuration name="PetTest.ComicCharacterStopSinging" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;dieBremerStadtmusikanten.PetTest.ComicCharacterStopSinging&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.SingerTest">
     <configuration name="PetTest.DirectorMakesThemSing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -203,13 +177,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="SingerTest.PetHasInitValues" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;dieBremerStadtmusikanten.SingerTest.PetHasInitValues&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.SingerTest.DonkeyCantSingBcIsSick" />
         <item itemvalue="Gradle.SingerTest" />
+        <item itemvalue="Gradle.SingerTest.PetHasInitValues" />
+        <item itemvalue="Gradle.SingerTest.DonkeyCantSingBcIsSick" />
         <item itemvalue="Gradle.SingerTest.DirectorMakesPetsSing" />
         <item itemvalue="Gradle.PetTest.DirectorMakesThemSing" />
-        <item itemvalue="Gradle.PetTest.ComicCharacterStopSinging" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +229,7 @@
       <workItem from="1655191569988" duration="7742000" />
       <workItem from="1655201961606" duration="511000" />
       <workItem from="1655202508187" duration="13000" />
-      <workItem from="1655215312020" duration="2494000" />
+      <workItem from="1655215312020" duration="3028000" />
     </task>
     <servers />
   </component>

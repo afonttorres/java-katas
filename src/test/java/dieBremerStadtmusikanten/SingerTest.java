@@ -126,6 +126,8 @@ class SingerTest {
         donkey.getSick();
         donkey.sing();
         String msg = donkey.isSinging();
+        String song = donkey.sing();
         assertEquals("The donkey Burro can't sing bc is sick.",msg);
+        assertEquals("", song);
     }
 }

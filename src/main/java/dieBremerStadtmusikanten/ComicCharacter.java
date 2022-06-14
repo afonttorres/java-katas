@@ -17,12 +17,10 @@ public class ComicCharacter implements Singer {
         this.sound = sound;
     }
 
+    //METHODS
     @Override
     public String sing() {
-        if(isSick) {
-            this.msg+=" can't sing bc is sick.";
-            return "";
-        }
+        if(isSick) {return "";}
         msg+=" sings: "+this.sound;
         return this.sound;
     }
@@ -40,5 +38,6 @@ public class ComicCharacter implements Singer {
     @Override
     public void getSick(){
         this.isSick = true;
+        this.msg+=" can't sing bc is sick.";
     }
 }
