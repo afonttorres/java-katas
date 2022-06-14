@@ -1,4 +1,4 @@
-package katas;
+package rpgCombat;
 
 import java.util.ArrayList;
 import java.util.List;

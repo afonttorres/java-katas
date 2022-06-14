@@ -1,4 +1,4 @@
-package katas;
+package rpgCombat;
 
 public class Attack {
     private Character attacker;

@@ -1,4 +1,4 @@
-package katas;
+package rpgCombat;
 
 public class Melee extends Character{
     private int range = 2;

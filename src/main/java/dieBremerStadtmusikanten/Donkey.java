@@ -1,10 +1,10 @@
 package dieBremerStadtmusikanten;
 
-public class Dog implements Pet{
+public class Donkey implements Pet{
     private String name;
-    private String sound = "boop-boop";
+    private String sound = "eeeeh-aaaah";
     private boolean isSinging;
-    public Dog(String name) {
+    public Donkey(String name) {
         this.name = name;
     }
 
@@ -28,8 +28,8 @@ public class Dog implements Pet{
     }
 
     @Override
-    public String isSinging(){
-        String msg = "The dog "+this.name;
+    public String isSinging() {
+        String msg = "The donkey "+this.name;
         if(this.isSinging)  msg+=" sings: "+this.sound;
         if(!this.isSinging) msg+=" doesn't want to sing.";
         return msg;

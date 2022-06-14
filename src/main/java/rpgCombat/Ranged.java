@@ -1,4 +1,4 @@
-package katas;
+package rpgCombat;
 
 public class Ranged extends Character{
     private int range = 20;

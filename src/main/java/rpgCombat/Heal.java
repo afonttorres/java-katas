@@ -1,4 +1,4 @@
-package katas;
+package rpgCombat;
 
 public class Heal {
     private Character healer;

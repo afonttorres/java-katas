@@ -1,4 +1,4 @@
-package katas;
+package fizzbuzz;
 
 import java.util.List;
 import java.util.stream.Collectors;

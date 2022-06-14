@@ -1,4 +1,4 @@
-package katas;
+package rpgCombat;
 
 public class Main {
     public static void main(String [] args){

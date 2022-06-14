@@ -5,12 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839c5b5b-97a7-4f83-b559-9795a679085c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Donkey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/calculator/CalculatorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/fizzbuzz/FizzBuzzTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Callable.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Cat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Dog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Pet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/SCallable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dieBremerStadtmusikanten/Director.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgCombat/Attack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/calculator/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgCombat/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Coord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgCombat/Coord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Faction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgCombat/Faction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgCombat/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/FizzBuzz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fizzbuzz/FizzBuzz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Heal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgCombat/Heal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgCombat/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Melee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgCombat/Melee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Ranged.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgCombat/Ranged.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/Thing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgCombat/Thing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/katas/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fizzbuzz/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dieBremerStadtmusikanten/PetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dieBremerStadtmusikanten/PetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/katas/CalculatorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/katas/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rpgCombat/CharacterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/katas/FizzBuzzTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +57,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -58,9 +77,11 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/agnes/Documents/fullstack-bootcamp-2k22/projectes/coders&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -76,13 +97,14 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="fizzbuzz" />
+      <recent name="Calculator" />
       <recent name="dieBremerStadtmusikanten" />
       <recent name="library" />
       <recent name="Library" />
-      <recent name="katas" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.PetTest.PetStopSingingFromPetition">
+  <component name="RunManager" selected="Gradle.PetTest.DirectorMakesPetsStopSinging">
     <configuration name="PetTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -106,7 +128,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PetTest.PetHasInitValues" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PetTest.DirectorExist" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -119,7 +141,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dieBremerStadtmusikanten.PetTest.PetHasInitValues&quot;" />
+            <option value="&quot;dieBremerStadtmusikanten.PetTest.DirectorExist&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -129,7 +151,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PetTest.PetSingsFromCallback" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PetTest.DirectorMakesPetsSing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -142,7 +164,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dieBremerStadtmusikanten.PetTest.PetSingsFromCallback&quot;" />
+            <option value="&quot;dieBremerStadtmusikanten.PetTest.DirectorMakesPetsSing&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -152,7 +174,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PetTest.PetSingsFromPetition" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PetTest.DirectorMakesPetsStopSinging" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -165,7 +187,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dieBremerStadtmusikanten.PetTest.PetSingsFromPetition&quot;" />
+            <option value="&quot;dieBremerStadtmusikanten.PetTest.DirectorMakesPetsStopSinging&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -175,7 +197,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PetTest.PetStopSingingFromPetition" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PetTest.DonkeyStopSingingMsg" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -188,7 +210,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dieBremerStadtmusikanten.PetTest.PetStopSingingFromPetition&quot;" />
+            <option value="&quot;dieBremerStadtmusikanten.PetTest.DonkeyStopSingingMsg&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -200,11 +222,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PetTest.PetStopSingingFromPetition" />
-        <item itemvalue="Gradle.PetTest.PetSingsFromPetition" />
-        <item itemvalue="Gradle.PetTest.PetSingsFromCallback" />
+        <item itemvalue="Gradle.PetTest.DirectorMakesPetsStopSinging" />
+        <item itemvalue="Gradle.PetTest.DirectorMakesPetsSing" />
+        <item itemvalue="Gradle.PetTest.DirectorExist" />
         <item itemvalue="Gradle.PetTest" />
-        <item itemvalue="Gradle.PetTest.PetHasInitValues" />
+        <item itemvalue="Gradle.PetTest.DonkeyStopSingingMsg" />
       </list>
     </recent_temporary>
   </component>
@@ -223,6 +245,8 @@
       <workItem from="1654758233842" duration="32794000" />
       <workItem from="1654845095185" duration="36998000" />
       <workItem from="1655103925536" duration="21712000" />
+      <workItem from="1655133605590" duration="1357000" />
+      <workItem from="1655191569988" duration="7742000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-package katas;
+package rpgCombat;
 
 import org.junit.jupiter.api.Test;
 
@@ -672,7 +672,7 @@ class CharacterTest {
         fiona.setPosition(position);
 
         int contentSize = position.getContent().size();
-        System.out.println(contentSize);
+        System.out.println(field.getCoordContent(position));
         assertEquals(3, contentSize);
     }
 

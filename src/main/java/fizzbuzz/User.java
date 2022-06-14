@@ -1,4 +1,4 @@
-package katas;
+package fizzbuzz;
 
 public class User {
     private String name;

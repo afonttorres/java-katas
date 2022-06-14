@@ -1,4 +1,4 @@
-package katas;
+package rpgCombat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,8 +63,11 @@ public class Field {
                 }
                 if(this.fieldCoords.get(i).getContent().size() > this.fieldCoords.get(i).getMaxContent()) {
                     System.out.println("Position "+"("+position.getX()+","+ position.getY()+")"+" is already taken.");
+
                     this.castElement(position);
                     this.fieldCoords.get(i).getContent().remove(this.fieldCoords.get(i).getContent().size()-1);
+                    //replace del content de cada element de la posició per aquest
+
                     return;
                 }
             }
@@ -74,12 +77,12 @@ public class Field {
 
     public void castElement(Coord position){
         String simpleName = position.getContent().get(position.getContent().size()-1).getClass().getCanonicalName();
-
-        if (simpleName == "katas.Character"){
+        System.out.println(simpleName);
+        if (simpleName == "rpgCombat.Character"){
             Character character = (Character) position.getContent().get(position.getContent().size()-1);
             removeFromField(character);
         }
-        if(simpleName == "katas.Thing"){
+        if(simpleName == "rpgCombat.Thing"){
             Thing thing = (Thing) position.getContent().get(position.getContent().size()-1);
             removeFromField(thing);
         }

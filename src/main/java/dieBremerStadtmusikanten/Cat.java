@@ -2,7 +2,7 @@ package dieBremerStadtmusikanten;
 
 public class Cat implements Pet{
     private String name;
-    private String sound = "Meow-meow";
+    private String sound = "meow-meow";
     private boolean isSinging;
     public Cat(String name) {
         this.name = name;
